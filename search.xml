@@ -392,6 +392,12 @@
 <p>一个 class path 可能会包含好几个路径，多路径应该用分隔符分开。默认情况下，编译器和 JVM 查找当前目录。JAR 文件按包含 Java 平台相关的类，所以他们的目录默认放在了 class path 中。</p>
 <h2 id="8-5设置-CLASSPATH-系统变量"><a href="#8-5设置-CLASSPATH-系统变量" class="headerlink" title="8.5设置 CLASSPATH 系统变量"></a>8.5设置 CLASSPATH 系统变量</h2><p>就像安装JDK时设置系统变量一样用自己的包！！！</p>
 ]]></content>
+      <categories>
+        <category>JAVA基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>Java基础语法</title>
@@ -1983,7 +1989,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>JAVA学习</category>
+        <category>JAVA基础</category>
       </categories>
       <tags>
         <tag>Java</tag>
