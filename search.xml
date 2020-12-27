@@ -1,6 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java面向对象</title>
+    <url>/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p>JAVA是一门纯面向对象的语言。</p>
+<h1 id="1-Java-继承"><a href="#1-Java-继承" class="headerlink" title="1.Java 继承"></a>1.Java 继承</h1><h2 id="1-1继承的概念"><a href="#1-1继承的概念" class="headerlink" title="1.1继承的概念"></a>1.1继承的概念</h2><p>继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。</p>
+<p>继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。</p>
+<p>所以继承需要符合的关系是：is-a，父类更通用，子类更具体。</p>
+<h2 id="1-2类的继承格式"><a href="#1-2类的继承格式" class="headerlink" title="1.2类的继承格式"></a>1.2类的继承格式</h2><p>在 Java 中通过 extends 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 父类 </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> 子类 <span class="keyword">extends</span> 父类 </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3为什么需要继承"><a href="#1-3为什么需要继承" class="headerlink" title="1.3为什么需要继承"></a>1.3为什么需要继承</h2><p>一个简单例子：</p>
+<p>不使用继承，代码重复：</p>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/1.png" alt></p>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/2.png" alt></p>
+<p>使用继承之后：</p>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/3.png" alt></p>
+<p>从这两段代码可以看出来，代码存在重复了，导致后果就是代码量大且臃肿，而且维护性不高(维护性主要是后期需要修改的时候，就需要修改很多的代码，容易出错)，所以要从根本上解决这两段代码的问题，就需要继承，将两段代码中相同的部分提取出来组成 一个父类.</p>
+<h2 id="1-4继承类型"><a href="#1-4继承类型" class="headerlink" title="1.4继承类型"></a>1.4继承类型</h2><p>需要注意的是 Java 不支持多继承，但支持多重继承。(C++支持多继承)</p>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/E:%5CBlog%5Csource_posts%5CJava%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%5C4.png" alt></p>
+<h2 id="1-5继承的特性"><a href="#1-5继承的特性" class="headerlink" title="1.5继承的特性"></a>1.5继承的特性</h2><ul>
+<li>子类拥有父类非 private 的属性、方法。</li>
+<li>子类可以拥有自己的属性和方法，即子类可以对父类进行扩展。</li>
+<li>子类可以用自己的方式实现父类的方法。</li>
+<li>Java 的继承是单继承，但是可以多重继承，单继承就是一个子类只能继承一个父类，多重继承就是，例如 B 类继承 A 类，C 类继承 B 类，所以按照关系就是 B 类是 C 类的父类，A 类是 B 类的父类，这是 Java 继承区别于 C++ 继承的一个特性。</li>
+<li>提高了类之间的耦合性（继承的缺点，耦合度高就会造成代码之间的联系越紧密，代码独立性越差）。</li>
+</ul>
+<h2 id="1-6-继承关键字"><a href="#1-6-继承关键字" class="headerlink" title="1.6 继承关键字"></a>1.6 继承关键字</h2><p>继承可以使用 extends 和 implements 这两个关键字来实现继承，而且所有的类都是继承于 java.lang.Object，当一个类没有继承的两个关键字，则默认继承object（这个类在 <strong>java.lang</strong> 包中，所以不需要 <strong>import</strong>）祖先类。</p>
+<h3 id="1-6-1extends关键字"><a href="#1-6-1extends关键字" class="headerlink" title="1.6.1extends关键字"></a>1.6.1extends关键字</h3><p>在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 extends 只能继承一个类。</p>
+<h3 id="1-6-2implements关键字"><a href="#1-6-2implements关键字" class="headerlink" title="1.6.2implements关键字"></a>1.6.2implements关键字</h3><p>使用 implements 关键字可以变相的使java具有多继承的特性，使用范围为类继承接口的情况，可以同时继承多个接口（接口跟接口之间采用逗号分隔）。</p>
+<h3 id="1-6-3super-与-this-关键字"><a href="#1-6-3super-与-this-关键字" class="headerlink" title="1.6.3super 与 this 关键字"></a>1.6.3super 与 this 关键字</h3><p>super关键字：我们可以通过super关键字来实现对父类成员的访问，用来引用当前对象的父类。</p>
+<p>this关键字：指向自己的引用。</p>
+<h3 id="1-6-4final关键字"><a href="#1-6-4final关键字" class="headerlink" title="1.6.4final关键字"></a>1.6.4final关键字</h3><p>final 关键字声明类可以把类定义为不能继承的，即最终类；或者用于修饰方法，该方法不能被子类重写：</p>
+<h3 id="1-6-5-构造器"><a href="#1-6-5-构造器" class="headerlink" title="1.6.5 构造器"></a>1.6.5 构造器</h3><p>子类是不继承父类的构造器（构造方法或者构造函数）的，它只是调用（隐式或显式）。如果父类的构造器带有参数，则必须在子类的构造器中显式地通过 <strong>super</strong> 关键字调用父类的构造器并配以适当的参数列表。</p>
+<p>如果父类构造器没有参数，则在子类的构造器中不需要使用 <strong>super</strong> 关键字调用父类构造器，系统会自动调用父类的无参构造器。</p>
+<h1 id="2-Java-重写-Override-与重载-Overload"><a href="#2-Java-重写-Override-与重载-Overload" class="headerlink" title="2.Java 重写(Override)与重载(Overload)"></a>2.Java 重写(Override)与重载(Overload)</h1><h2 id="2-1重写-Override"><a href="#2-1重写-Override" class="headerlink" title="2.1重写(Override)"></a>2.1重写(Override)</h2><p>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。<strong>即外壳不变，核心重写！</strong></p>
+<p>重写的好处在于子类可以根据需要，定义特定于自己的行为。 也就是说子类能够根据需要实现父类的方法。</p>
+<p>重写方法不能抛出新的检查异常或者比被重写方法申明更加宽泛的异常。例如： 父类的一个方法申明了一个检查异常 IOException，但是在重写这个方法的时候不能抛出 Exception 异常，因为 Exception 是 IOException 的父类，只能抛出 IOException 的子类异常。</p>
+<p>在编译阶段，只检查参数的引用类型。</p>
+<p>然而在运行时，Java 虚拟机(JVM)指定对象的类型并且运行该对象的方法。</p>
+<h3 id="2-1-1方法的重写规则"><a href="#2-1-1方法的重写规则" class="headerlink" title="2.1.1方法的重写规则"></a>2.1.1方法的重写规则</h3><ul>
+<li>参数列表与被重写方法的参数列表必须完全相同。</li>
+<li>返回类型与被重写方法的返回类型可以不相同，但是必须是父类返回值的派生类（java5 及更早版本返回类型要一样，java7 及更高版本可以不同）。</li>
+<li>访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为 public，那么在子类中重写该方法就不能声明为 protected。</li>
+<li>父类的成员方法只能被它的子类重写。</li>
+<li>声明为 final 的方法不能被重写。</li>
+<li>声明为 static 的方法不能被重写，但是能够被再次声明。</li>
+<li>子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为 private 和 final 的方法。</li>
+<li>子类和父类不在同一个包中，那么子类只能够重写父类的声明为 public 和 protected 的非 final 方法。</li>
+<li>重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</li>
+<li>构造方法不能被重写。</li>
+<li>如果不能继承一个类，则不能重写该类的方法。</li>
+</ul>
+<h3 id="2-1-2Super-关键字的使用"><a href="#2-1-2Super-关键字的使用" class="headerlink" title="2.1.2Super 关键字的使用"></a>2.1.2Super 关键字的使用</h3><p>当需要在子类中调用父类的被重写方法时，要使用 super 关键字。</p>
+<h2 id="2-2重载-Overload"><a href="#2-2重载-Overload" class="headerlink" title="2.2重载(Overload)"></a>2.2重载(Overload)</h2><p>重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</p>
+<p>每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</p>
+<p>最常用的地方就是构造器的重载。</p>
+<h3 id="2-2-1重载规则"><a href="#2-2-1重载规则" class="headerlink" title="2.2.1重载规则:"></a>2.2.1重载规则:</h3><ul>
+<li>被重载的方法必须改变参数列表(参数个数或类型不一样)；</li>
+<li>被重载的方法可以改变返回类型；</li>
+<li>被重载的方法可以改变访问修饰符；</li>
+<li>被重载的方法可以声明新的或更广的检查异常；</li>
+<li>方法能够在同一个类中或者在一个子类中被重载。</li>
+<li>无法以返回值类型作为重载函数的区分标准。</li>
+</ul>
+<h2 id="2-3重写与重载之间的区别"><a href="#2-3重写与重载之间的区别" class="headerlink" title="2.3重写与重载之间的区别"></a>2.3重写与重载之间的区别</h2><table>
+<thead>
+<tr>
+<th align="center">区别点</th>
+<th align="center">重载方法</th>
+<th align="center">重写方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">参数列表</td>
+<td align="center">必须修改</td>
+<td align="center">一定不能修改</td>
+</tr>
+<tr>
+<td align="center">返回类型</td>
+<td align="center">可以修改</td>
+<td align="center">一定不能修改</td>
+</tr>
+<tr>
+<td align="center">异常</td>
+<td align="center">可以修改</td>
+<td align="center">可以减少或删除，一定不能抛出新的或者更广的异常</td>
+</tr>
+<tr>
+<td align="center">访问</td>
+<td align="center">可以修改</td>
+<td align="center">一定不能做更严格的限制（可以降低限制）</td>
+</tr>
+</tbody></table>
+<h2 id="2-4总结："><a href="#2-4总结：" class="headerlink" title="2.4总结："></a>2.4总结：</h2><p>方法的重写(Overriding)和重载(Overloading)是java多态性的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。</p>
+<ul>
+<li>(1)方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(Overloading)。</li>
+<li>(2)方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(Overriding)。</li>
+<li>(3)方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现。</li>
+</ul>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/5.png" alt></p>
+<h1 id="3-Java-多态"><a href="#3-Java-多态" class="headerlink" title="3.Java 多态"></a>3.Java 多态</h1><p>多态是同一个行为具有多个不同表现形式或形态的能力。</p>
+<p>多态就是同一个接口，使用不同的实例而执行不同操作，如图所示：</p>
+<h2 id="3-1多态的优点"><a href="#3-1多态的优点" class="headerlink" title="3.1多态的优点"></a>3.1多态的优点</h2><ul>
+<li><ol>
+<li>消除类型之间的耦合关系</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>可替换性</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>可扩充性</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>接口性</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>灵活性</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>简化性</li>
+</ol>
+</li>
+</ul>
+<h2 id="3-2多态存在的三个必要条件"><a href="#3-2多态存在的三个必要条件" class="headerlink" title="3.2多态存在的三个必要条件"></a>3.2多态存在的三个必要条件</h2><ul>
+<li>继承</li>
+<li>重写</li>
+<li>父类引用指向子类对象：<strong>Parent p = new Child();</strong></li>
+</ul>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/6.png" alt></p>
+<h2 id="3-3虚函数"><a href="#3-3虚函数" class="headerlink" title="3.3虚函数"></a>3.3虚函数</h2><p>虚函数的存在是为了多态。</p>
+<p>Java 中其实没有虚函数的概念，它的普通函数就相当于 C++ 的虚函数，动态绑定是Java的默认行为。如果 Java 中不希望某个函数具有虚函数特性，可以加上 final 关键字变成非虚函数。</p>
+<h2 id="3-4多态的实现方式"><a href="#3-4多态的实现方式" class="headerlink" title="3.4多态的实现方式"></a>3.4多态的实现方式</h2><h3 id="方式一：重写"><a href="#方式一：重写" class="headerlink" title="方式一：重写"></a>方式一：重写</h3><h3 id="方式二：接口"><a href="#方式二：接口" class="headerlink" title="方式二：接口"></a>方式二：接口</h3><h3 id="方式三：抽象类和抽象方法"><a href="#方式三：抽象类和抽象方法" class="headerlink" title="方式三：抽象类和抽象方法"></a>方式三：抽象类和抽象方法</h3><h1 id="4-Java-抽象类"><a href="#4-Java-抽象类" class="headerlink" title="4.Java 抽象类"></a>4.Java 抽象类</h1><h2 id="4-1抽象类"><a href="#4-1抽象类" class="headerlink" title="4.1抽象类"></a>4.1抽象类</h2><p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。</p>
+<p>抽象类除了不能实例化对象之外，类的其它功能依然存在，成员变量、成员方法和构造方法的访问方式和普通类一样。</p>
+<p>由于抽象类不能实例化对象，所以抽象类必须被继承，才能被使用。也是因为这个原因，通常在设计阶段决定要不要设计抽象类。</p>
+<p>父类包含了子类集合的常见的方法，但是由于父类本身是抽象的，所以不能使用这些方法。</p>
+<p>在Java中抽象类表示的是一种继承关系，一个类只能继承一个抽象类，而一个类却可以实现多个接口。</p>
+<p>抽象类不能实例化：</p>
+<p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/7.png" alt></p>
+<h2 id="4-2抽象方法"><a href="#4-2抽象方法" class="headerlink" title="4.2抽象方法"></a>4.2抽象方法</h2><p>如果你想设计这样一个类，该类包含一个特别的成员方法，该方法的具体实现由它的子类确定，那么你可以在父类中声明该方法为抽象方法。</p>
+<p>Abstract 关键字同样可以用来声明抽象方法，抽象方法只包含一个方法名，而没有方法体。</p>
+<p>抽象方法没有定义，方法名后面直接跟一个分号，而不是花括号。</p>
+<p><strong>声明抽象方法会造成以下两个结果：</strong></p>
+<ul>
+<li>如果一个类包含抽象方法，那么该类必须是抽象类。</li>
+<li>任何子类必须重写父类的抽象方法，或者声明自身为抽象类。</li>
+</ul>
+<p>继承抽象方法的子类必须重写该方法。否则，该子类也必须声明为抽象类。最终，必须有子类实现该抽象方法，否则，从最初的父类到最终的子类都不能用来实例化对象。</p>
+<h2 id="4-3抽象类总结规定"><a href="#4-3抽象类总结规定" class="headerlink" title="4.3抽象类总结规定"></a>4.3抽象类总结规定</h2><ul>
+<li><ol>
+<li>抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>构造方法，类方法（用 static 修饰的方法）不能声明为抽象方法。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>抽象类的子类必须给出抽象类中的抽象方法的具体实现，除非该子类也是抽象类。</li>
+</ol>
+</li>
+</ul>
+<h1 id="5-Java-封装"><a href="#5-Java-封装" class="headerlink" title="5.Java 封装"></a>5.Java 封装</h1><p>在面向对象程式设计方法中，封装（英语：Encapsulation）是指一种将抽象性函式接口的实现细节部分包装、隐藏起来的方法。</p>
+<p>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。</p>
+<p>要访问该类的代码和数据，必须通过严格的接口控制。</p>
+<p>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。</p>
+<p>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。</p>
+<h2 id="5-1封装的优点"><a href="#5-1封装的优点" class="headerlink" title="5.1封装的优点"></a>5.1封装的优点</h2><ul>
+<li><ol>
+<li>良好的封装能够减少耦合。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>类内部的结构可以自由修改。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>可以对成员变量进行更精确的控制。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>隐藏信息，实现细节。</li>
+</ol>
+</li>
+</ul>
+<h2 id="5-2实现Java封装的步骤"><a href="#5-2实现Java封装的步骤" class="headerlink" title="5.2实现Java封装的步骤"></a>5.2实现Java封装的步骤</h2><h3 id="5-2-1修改属性的可见性来限制对属性的访问（一般限制为private），例如："><a href="#5-2-1修改属性的可见性来限制对属性的访问（一般限制为private），例如：" class="headerlink" title="5.2.1修改属性的可见性来限制对属性的访问（一般限制为private），例如："></a>5.2.1修改属性的可见性来限制对属性的访问（一般限制为private），例如：</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码中，将 <strong>name</strong> 和 <strong>age</strong> 属性设置为私有的，只能本类才能访问，其他类都访问不了，如此就对信息进行了隐藏。</p>
+<h3 id="5-2-2对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问，例如："><a href="#5-2-2对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问，例如：" class="headerlink" title="5.2.2对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问，例如："></a>5.2.2对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问，例如：</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">​</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>采用 <strong>this</strong> 关键字是为了解决实例变量（private String name）和局部变量（setName(String name)中的name变量）之间发生的同名的冲突。</p>
+<h1 id="6-Java-接口"><a href="#6-Java-接口" class="headerlink" title="6.Java 接口"></a>6.Java 接口</h1><p>接口（英文：Interface），在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口通常以interface来声明。一个类通过继承接口的方式，从而来继承接口的抽象方法。</p>
+<p>接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念。类描述对象的属性和方法。接口则包含类要实现的方法。</p>
+<p>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。</p>
+<p>接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类。另外，在 Java 中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象。</p>
+<h2 id="6-1接口与类相似点："><a href="#6-1接口与类相似点：" class="headerlink" title="6.1接口与类相似点："></a>6.1接口与类相似点：</h2><ul>
+<li>一个接口可以有多个方法。</li>
+<li>接口文件保存在 .java 结尾的文件中，文件名使用接口名。</li>
+<li>接口的字节码文件保存在 .class 结尾的文件中。</li>
+<li>接口相应的字节码文件必须在与包名称相匹配的目录结构中。</li>
+</ul>
+<h2 id="6-2接口与类的区别："><a href="#6-2接口与类的区别：" class="headerlink" title="6.2接口与类的区别："></a>6.2接口与类的区别：</h2><ul>
+<li>接口不能用于实例化对象。</li>
+<li>接口没有构造方法。</li>
+<li>接口中所有的方法必须是抽象方法。</li>
+<li>接口不能包含成员变量，除了 static 和 final 变量。</li>
+<li>接口不是被类继承了，而是要被类实现。</li>
+<li>接口支持多继承。</li>
+</ul>
+<h2 id="6-3接口特性"><a href="#6-3接口特性" class="headerlink" title="6.3接口特性"></a>6.3接口特性</h2><ul>
+<li>接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为 <strong>public abstract</strong>（只能是 public abstract，其他修饰符都会报错）。</li>
+<li>接口中可以含有变量，但是接口中的变量会被隐式的指定为 <strong>public static final</strong> 变量（并且只能是 public，用 private 修饰会报编译错误）。</li>
+<li>接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法。</li>
+</ul>
+<h2 id="6-4抽象类和接口的区别"><a href="#6-4抽象类和接口的区别" class="headerlink" title="6.4抽象类和接口的区别"></a>6.4抽象类和接口的区别</h2><ul>
+<li><ol>
+<li>抽象类中的方法可以有方法体，就是能实现方法的具体功能，但是接口中的方法不行。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 <strong>public static final</strong> 类型的。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>接口中不能含有静态代码块以及静态方法(用 static 修饰的方法)，而抽象类是可以有静态代码块和静态方法。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</li>
+</ol>
+</li>
+</ul>
+<h2 id="6-5接口的声明"><a href="#6-5接口的声明" class="headerlink" title="6.5接口的声明"></a>6.5接口的声明</h2><p>规则：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[可见度] interface 接口名称 [extends 其他的接口名] &#123;</span><br><span class="line">        <span class="comment">// 声明变量</span></span><br><span class="line">        <span class="comment">// 抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口有以下特性：</p>
+<ul>
+<li>接口是隐式抽象的，当声明一个接口的时候，不必使用<strong>abstract</strong>关键字。</li>
+<li>接口中每一个方法也是隐式抽象的，声明时同样不需要<strong>abstract</strong>关键字。</li>
+<li>接口中的方法都是公有的。</li>
+</ul>
+<h2 id="6-6接口的实现"><a href="#6-6接口的实现" class="headerlink" title="6.6接口的实现"></a>6.6接口的实现</h2><p>当类实现接口的时候，类要实现接口中所有的方法。否则，类必须声明为抽象的类。</p>
+<p>类使用implements关键字实现接口。在类声明中，Implements关键字放在class声明后面。</p>
+<p>实现一个接口的语法，可以使用这个公式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...implements 接口名称[, 其他接口名称, 其他接口名称..., ...] ...</span><br></pre></td></tr></table></figure>
+
+<p>重写接口中声明的方法时，需要注意以下规则：</p>
+<ul>
+<li>类在实现接口的方法时，不能抛出强制性异常，只能在接口中，或者继承接口的抽象类中抛出该强制性异常。</li>
+<li>类在重写方法时要保持一致的方法名，并且应该保持相同或者相兼容的返回值类型。</li>
+<li>如果实现接口的类是抽象类，那么就没必要实现该接口的方法。</li>
+</ul>
+<p>在实现接口的时候，也要注意一些规则：</p>
+<ul>
+<li>一个类可以同时实现多个接口。</li>
+<li>一个类只能继承一个类，但是能实现多个接口。</li>
+<li>一个接口能继承另一个接口，这和类之间的继承比较相似。</li>
+</ul>
+<h2 id="6-7接口的继承"><a href="#6-7接口的继承" class="headerlink" title="6.7接口的继承"></a>6.7接口的继承</h2><p>一个接口能继承另一个接口，和类之间的继承方式比较相似。接口的继承使用extends关键字，子接口继承父接口的方法。</p>
+<h2 id="6-8接口的多继承"><a href="#6-8接口的多继承" class="headerlink" title="6.8接口的多继承"></a>6.8接口的多继承</h2><p>在Java中，类的多继承是不合法，但接口允许多继承。</p>
+<p>在接口的多继承中extends关键字只需要使用一次，在其后跟着继承接口。 如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Hockey</span> <span class="keyword">extends</span> <span class="title">Sports</span>, <span class="title">Event</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-9标记接口"><a href="#6-9标记接口" class="headerlink" title="6.9标记接口"></a>6.9标记接口</h2><p>最常用的继承接口是没有包含任何方法的接口。</p>
+<p>标记接口是没有任何方法和属性的接口.它仅仅表明它的类属于一个特定的类型,供其他代码来测试允许做一些事情。</p>
+<p>标记接口作用：简单形象的说就是给某个对象打个标（盖个戳），使对象拥有某个或某些特权。</p>
+<p>例如：java.awt.event 包中的 MouseListener 接口继承的 java.util.EventListener 接口定义如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EventListener</span></span></span><br><span class="line"><span class="class"></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有任何方法的接口被称为标记接口。标记接口主要用于以下两种目的：</p>
+<ul>
+<li><p>建立一个公共的父接口：</p>
+<p>正如EventListener接口，这是由几十个其他接口扩展的Java API，你可以使用一个标记接口来建立一组接口的父接口。例如：当一个接口继承了EventListener接口，Java虚拟机(JVM)就知道该接口将要被用于一个事件的代理方案。</p>
+</li>
+<li><p>向一个类添加数据类型：</p>
+<p>这种情况是标记接口最初的目的，实现标记接口的类不需要定义任何接口方法(因为标记接口根本就没有方法)，但是该类通过多态性变成一个接口类型。</p>
+</li>
+</ul>
+<h1 id="7-Java-枚举-enum"><a href="#7-Java-枚举-enum" class="headerlink" title="7.Java 枚举(enum)"></a>7.Java 枚举(enum)</h1><p>Java 枚举是一个特殊的类，一般表示一组常量，比如一年的 4 个季节，一个年的 12 个月份，一个星期的 7 天，方向有东南西北等。</p>
+<p>Java 枚举类使用 enum 关键字来定义，各个常量使用逗号 <strong>,</strong> 来分割。</p>
+<p>例如定义一个颜色的枚举类。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum Color </span><br><span class="line">&#123; </span><br><span class="line">    RED, GREEN, BLUE; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color</span><br><span class="line">&#123;</span><br><span class="line">    RED, GREEN, BLUE;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 执行输出结果</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Color c1 = Color.RED;</span><br><span class="line">        System.out.println(c1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：RED</p>
+<h2 id="7-1内部类中使用枚举"><a href="#7-1内部类中使用枚举" class="headerlink" title="7.1内部类中使用枚举"></a>7.1内部类中使用枚举</h2><p>枚举类也可以声明在内部类中</p>
+<h2 id="7-2迭代枚举元素"><a href="#7-2迭代枚举元素" class="headerlink" title="7.2迭代枚举元素"></a>7.2迭代枚举元素</h2><p>可以使用 for 语句来迭代枚举元素：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color</span><br><span class="line">&#123;</span><br><span class="line">    RED, GREEN, BLUE;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Color myVar : Color.values()) &#123;</span><br><span class="line">      System.out.println(myVar);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>和C++中的枚举区别很大</p>
+<h2 id="7-3在-switch-中使用枚举类"><a href="#7-3在-switch-中使用枚举类" class="headerlink" title="7.3在 switch 中使用枚举类"></a>7.3在 switch 中使用枚举类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color</span><br><span class="line">&#123;</span><br><span class="line">    RED, GREEN, BLUE;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Color myVar = Color.BLUE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(myVar) &#123;</span><br><span class="line">      <span class="keyword">case</span> RED:</span><br><span class="line">        System.out.println(<span class="string">"红色"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> GREEN:</span><br><span class="line">         System.out.println(<span class="string">"绿色"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> BLUE:</span><br><span class="line">        System.out.println(<span class="string">"蓝色"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-4values-ordinal-和-valueOf-方法"><a href="#7-4values-ordinal-和-valueOf-方法" class="headerlink" title="7.4values(), ordinal() 和 valueOf() 方法"></a>7.4values(), ordinal() 和 valueOf() 方法</h2><p>enum 定义的枚举类默认继承了 java.lang.Enum 类，并实现了 java.lang.Seriablizable 和 java.lang.Comparable 两个接口。</p>
+<p>values(), ordinal() 和 valueOf() 方法位于 java.lang.Enum 类中：</p>
+<ul>
+<li>values() 返回枚举类中所有的值。</li>
+<li>ordinal()方法可以找到每个枚举常量的索引，就像数组索引一样。</li>
+<li>valueOf()方法返回指定字符串值的枚举常量。</li>
+</ul>
+<h1 id="8-Java-包-package"><a href="#8-Java-包-package" class="headerlink" title="8.Java 包(package)"></a>8.Java 包(package)</h1><p>为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间。</p>
+<p>C++中使用using namespace的编译指令区别！！！</p>
+<h2 id="8-1包的作用"><a href="#8-1包的作用" class="headerlink" title="8.1包的作用"></a>8.1包的作用</h2><ul>
+<li>1、把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用。</li>
+<li>2、如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</li>
+<li>3、包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类。</li>
+</ul>
+<p>Java 使用包（package）这种机制是为了防止命名冲突，访问控制，提供搜索和定位类（class）、接口、枚举（enumerations）和注释（annotation）等。</p>
+<p>包语句的语法格式为：</p>
+<p><code>package pkg1[．pkg2[．pkg3…]];</code></p>
+<h2 id="8-2创建包"><a href="#8-2创建包" class="headerlink" title="8.2创建包"></a>8.2创建包</h2><p><img src="/2020/12/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/8.png" alt></p>
+<p>然后可以把自己的包打包成jar包，并调用</p>
+<h2 id="8-3import-关键字"><a href="#8-3import-关键字" class="headerlink" title="8.3import 关键字"></a>8.3import 关键字</h2><p>为了能够使用某一个包的成员，我们需要在 Java 程序中明确导入该包。使用 “import” 语句可完成此功能。</p>
+<p>在 java 源文件中 import 语句应位于 package 语句之后，所有类的定义之前，可以没有，也可以有多条，其语法格式为：<br><code>port package1[.package2…].(classname|*);</code></p>
+<h2 id="8-4package-的目录结构"><a href="#8-4package-的目录结构" class="headerlink" title="8.4package 的目录结构"></a>8.4package 的目录结构</h2><p>类放在包中会有两种主要的结果：</p>
+<ul>
+<li>包名成为类名的一部分，正如我们前面讨论的一样。</li>
+<li>包名必须与相应的字节码所在的目录结构相吻合。</li>
+</ul>
+<p>下面是管理你自己 java 中文件的一种简单方式：</p>
+<ul>
+<li>将类、接口等类型的源码放在一个文本中，这个文件的名字就是这个类型的名字，并以.java作为扩展名。例如：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 :  Car.java</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">package</span> vehicle;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   <span class="comment">// 类实现  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接下来，把源文件放在一个目录中，这个目录要对应类所在包的名字。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">....\vehicle\Car.java</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>现在，正确的类名和路径将会是如下样子：</p>
+<ul>
+<li>类名 -&gt; vehicle.Car</li>
+<li>路径名 -&gt; vehicle\Car.java (在 windows 系统中)</li>
+</ul>
+<p>通常，一个公司使用它互联网域名的颠倒形式来作为它的包名.例如：互联网域名是 runoob.com，所有的包名都以 com.runoob 开头。包名中的每一个部分对应一个子目录。</p>
+<p>例如：有一个 <strong>com.runoob.test</strong> 的包，这个包包含一个叫做 Runoob.java 的源文件，那么相应的，应该有如下面的一连串子目录：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">....\com\runoob\test\Runoob.java</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译的时候，编译器为包中定义的每个类、接口等类型各创建一个不同的输出文件，输出文件的名字就是这个类型的名字，并加上 .class 作为扩展后缀。 例如：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名: Runoob.java</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">package</span> com.runoob.test;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Runoob</span> </span>&#123;</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Google</span> </span>&#123;</span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>现在，我们用-d选项来编译这个文件，如下：</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$javac -d . Runoob.java</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>这样会像下面这样放置编译了的文件：</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.\com\runoob\test\Runoob.class</span><br><span class="line">.\com\runoob\test\Google.class</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>你可以像下面这样来导入所有 <strong>\com\runoob\test\</strong> 中定义的类、接口等：</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import com.runoob.test.*;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>编译之后的 .class 文件应该和 .java 源文件一样，它们放置的目录应该跟包的名字对应起来。但是，并不要求 .class 文件的路径跟相应的 .java 的路径一样。你可以分开来安排源码和类的目录。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;path-one&gt;\sources\com\runoob\test\Runoob.java</span><br><span class="line">&lt;path-two&gt;\classes\com\runoob\test\Google.class</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>这样，你可以将你的类目录分享给其他的编程人员，而不用透露自己的源码。用这种方法管理源码和类文件可以让编译器和java 虚拟机（JVM）可以找到你程序中使用的所有类型。</p>
+<p>类目录的绝对路径叫做 <strong>class path</strong>。设置在系统变量 <strong>CLASSPATH</strong> 中。编译器和 java 虚拟机通过将 package 名字加到 class path 后来构造 .class 文件的路径。</p>
+<p><path- two>\classes 是 class path，package 名字是 com.runoob.test,而编译器和 JVM 会在 <path-two>\classes\com\runoob\test 中找 .class 文件。</path-two></path-></p>
+<p>一个 class path 可能会包含好几个路径，多路径应该用分隔符分开。默认情况下，编译器和 JVM 查找当前目录。JAR 文件按包含 Java 平台相关的类，所以他们的目录默认放在了 class path 中。</p>
+<h2 id="8-5设置-CLASSPATH-系统变量"><a href="#8-5设置-CLASSPATH-系统变量" class="headerlink" title="8.5设置 CLASSPATH 系统变量"></a>8.5设置 CLASSPATH 系统变量</h2><p>就像安装JDK时设置系统变量一样用自己的包！！！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Java基础语法</title>
     <url>/2020/12/26/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<a id="more"></a>
