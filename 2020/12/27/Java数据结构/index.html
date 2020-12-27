@@ -133,11 +133,11 @@
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我有过数据结构的基础，学C++时都实现了一遍数据结构，所以相当于做记录，更偏向实际应用。</p>
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我有过数据结构的基础，学C++时都实现了一遍数据结构，所以相当于做记录，更偏向实际应用。</p>
 <p>本博客相当于是笔记，只为了给自己以后方便查资料等，并不是自己写的内容，因为我也是正在学。</p>
 <p>基本复制来的加上自己手敲代码给自己加深印象。</p>
 <p>资源来自<a href="https://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener">菜鸟网</a></p>
-<h1 id="Java-数据结构"><a href="#Java-数据结构" class="headerlink" title="Java 数据结构"></a>Java 数据结构</h1><p>Java工具包提供了强大的数据结构。在Java中的数据结构主要包括以下几种接口和类：</p>
+<h2 id="Java-数据结构"><a href="#Java-数据结构" class="headerlink" title="Java 数据结构"></a>Java 数据结构</h2><p>Java工具包提供了强大的数据结构。在Java中的数据结构主要包括以下几种接口和类：</p>
 <ul>
 <li>枚举（Enumeration）</li>
 <li>位集合（BitSet）</li>
@@ -147,7 +147,7 @@
 <li>哈希表（Hashtable）</li>
 <li>属性（Properties）</li>
 </ul>
-<h2 id="枚举（Enumeration）"><a href="#枚举（Enumeration）" class="headerlink" title="枚举（Enumeration）"></a>枚举（Enumeration）</h2><p>枚举（Enumeration）接口虽然它本身不属于数据结构,但它在其他数据结构的范畴里应用很广。 枚举（The Enumeration）接口定义了一种从数据结构中取回连续元素的方式。</p>
+<h3 id="枚举（Enumeration）"><a href="#枚举（Enumeration）" class="headerlink" title="枚举（Enumeration）"></a>枚举（Enumeration）</h3><p>枚举（Enumeration）接口虽然它本身不属于数据结构,但它在其他数据结构的范畴里应用很广。 枚举（The Enumeration）接口定义了一种从数据结构中取回连续元素的方式。</p>
 <p>例如，枚举定义了一个叫nextElement 的方法，该方法用来得到一个包含多元素的数据结构的下一个元素。</p>
 <p>Enumeration接口中定义了一些方法，通过这些方法可以枚举（一次获得一个）对象集合中的元素。</p>
 <p>这种传统接口已被迭代器取代，虽然Enumeration 还未被遗弃，但在现代代码中已经被很少使用了。尽管如此，它还是使用在诸如Vector和Properties这些传统类所定义的方法中，除此之外，还用在一些API类，并且在应用程序中也广泛被使用。 下表总结了一些Enumeration声明的方法：</p>
@@ -172,7 +172,7 @@
 
 <p>运行结果：</p>
 <p><img alt="" class="post-img b-lazy" href="/2020/12/27/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.png" data-src="/2020/12/27/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.png"></p>
-<h2 id="位集合（BitSet）"><a href="#位集合（BitSet）" class="headerlink" title="位集合（BitSet）"></a>位集合（BitSet）</h2><p>位集合类实现了一组可以单独设置和清除的位或标志。</p>
+<h3 id="位集合（BitSet）"><a href="#位集合（BitSet）" class="headerlink" title="位集合（BitSet）"></a>位集合（BitSet）</h3><p>位集合类实现了一组可以单独设置和清除的位或标志。</p>
 <p>该类在处理一组布尔值的时候非常有用，你只需要给每个值赋值一”位”，然后对位进行适当的设置或清除，就可以对布尔值进行操作了。</p>
 <p>一个Bitset类创建一种特殊类型的数组来保存位值。BitSet中数组大小会随需要增加。这和位向量（vector of bits）比较类似。</p>
 <p>这是一个传统的类，但它在Java 2中被完全重新设计。</p>
@@ -183,7 +183,7 @@
 <p>第二个方法允许用户指定初始大小。所有位初始化为0。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BitSet(int size)</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="向量（Vector）"><a href="#向量（Vector）" class="headerlink" title="向量（Vector）"></a>向量（Vector）</h2><p>向量（Vector）类和传统数组非常相似，但是Vector的大小能根据需要动态的变化。</p>
+<h3 id="向量（Vector）"><a href="#向量（Vector）" class="headerlink" title="向量（Vector）"></a>向量（Vector）</h3><p>向量（Vector）类和传统数组非常相似，但是Vector的大小能根据需要动态的变化。</p>
 <p>和数组一样，Vector对象的元素也能通过索引访问。</p>
 <p>使用Vector类最主要的好处就是在创建对象的时候不必给对象指定大小，它的大小会根据需要动态的变化。</p>
 <p>Vector 类实现了一个动态数组。和 ArrayList 很相似，但是两者是不同的：</p>
@@ -210,7 +210,7 @@
 <p> Enumeration elements()  返回此向量的组件的枚举。</p>
 <p>int capacity() 返回此向量的当前容量。</p>
 <p><strong>容量可以构造时指定，而size表示容器中现在有的对象个数。</strong></p>
-<h2 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h2><p>栈（Stack）实现了一个后进先出（LIFO）的数据结构。</p>
+<h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><p>栈（Stack）实现了一个后进先出（LIFO）的数据结构。</p>
 <p>你可以把栈理解为对象的垂直分布的栈，当你添加一个新元素时，就将新元素放在其他元素的顶部。</p>
 <p>当你从栈中取元素的时候，就从栈顶取一个元素。换句话说，最后进栈的元素最先被取出。</p>
 <p><strong>除了由Vector定义的所有方法，自己也定义了一些方法：</strong></p>
@@ -245,7 +245,7 @@
 <td align="center">int search(Object element) 返回对象在堆栈中的位置，以 1 为基数。</td>
 </tr>
 </tbody></table>
-<h2 id="字典（Dictionary）"><a href="#字典（Dictionary）" class="headerlink" title="字典（Dictionary）"></a>字典（Dictionary）</h2><p>字典（Dictionary） 类是一个抽象类，它定义了键映射到值的数据结构。</p>
+<h3 id="字典（Dictionary）"><a href="#字典（Dictionary）" class="headerlink" title="字典（Dictionary）"></a>字典（Dictionary）</h3><p>字典（Dictionary） 类是一个抽象类，它定义了键映射到值的数据结构。</p>
 <p>当你想要通过特定的键而不是整数索引来访问数据的时候，这时候应该使用Dictionary。</p>
 <p>由于Dictionary类是抽象类，所以它只提供了键映射到值的数据结构，而没有提供特定的实现。</p>
 <p>类似于C++的map</p>
@@ -289,10 +289,10 @@
 </tr>
 </tbody></table>
 <p>Dictionary类已经过时了。在实际开发中，你可以实现Map接口来获取键/值的存储功能。</p>
-<h2 id="哈希表（Hashtable）"><a href="#哈希表（Hashtable）" class="headerlink" title="哈希表（Hashtable）"></a>哈希表（Hashtable）</h2><p>Hashtable类提供了一种在用户定义键结构的基础上来组织数据的手段。</p>
+<h3 id="哈希表（Hashtable）"><a href="#哈希表（Hashtable）" class="headerlink" title="哈希表（Hashtable）"></a>哈希表（Hashtable）</h3><p>Hashtable类提供了一种在用户定义键结构的基础上来组织数据的手段。</p>
 <p>例如，在地址列表的哈希表中，你可以根据邮政编码作为键来存储和排序数据，而不是通过人名。</p>
 <p>哈希表键的具体含义完全取决于哈希表的使用情景和它包含的数据。</p>
-<h3 id="Java-Hashtable-类"><a href="#Java-Hashtable-类" class="headerlink" title="Java Hashtable 类"></a>Java Hashtable 类</h3><p>Hashtable是原始的java.util的一部分， 是一个Dictionary具体的实现 。</p>
+<h4 id="Java-Hashtable-类"><a href="#Java-Hashtable-类" class="headerlink" title="Java Hashtable 类"></a>Java Hashtable 类</h4><p>Hashtable是原始的java.util的一部分， 是一个Dictionary具体的实现 。</p>
 <p>然而，Java 2 重构的Hashtable实现了Map接口，因此，Hashtable现在集成到了集合框架中。它和HashMap类很相似，但是它支持同步。</p>
 <p>像HashMap一样，Hashtable在哈希表中存储键/值对。当使用一个哈希表，要指定用作键的对象，以及要链接到该键的值。</p>
 <p>然后，该键经过哈希处理，所得到的散列码被用作存储在该表中值的索引。</p>
@@ -310,9 +310,9 @@
 <p>哈希表的容量被设置为M的两倍。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hashtable(Map m)</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="属性（Properties）"><a href="#属性（Properties）" class="headerlink" title="属性（Properties）"></a>属性（Properties）</h2><p>Properties 继承于 Hashtable.Properties 类表示了一个持久的属性集.属性列表中每个键及其对应值都是一个字符串。</p>
+<h3 id="属性（Properties）"><a href="#属性（Properties）" class="headerlink" title="属性（Properties）"></a>属性（Properties）</h3><p>Properties 继承于 Hashtable.Properties 类表示了一个持久的属性集.属性列表中每个键及其对应值都是一个字符串。</p>
 <p>Properties 类被许多Java类使用。例如，在获取环境变量时它就作为System.getProperties()方法的返回值。</p>
-<h3 id="Java-Properties-类"><a href="#Java-Properties-类" class="headerlink" title="Java Properties 类"></a>Java Properties 类</h3><p>Properties 继承于 Hashtable。表示一个持久的属性集.属性列表中每个键及其对应值都是一个字符串。</p>
+<h4 id="Java-Properties-类"><a href="#Java-Properties-类" class="headerlink" title="Java Properties 类"></a>Java Properties 类</h4><p>Properties 继承于 Hashtable。表示一个持久的属性集.属性列表中每个键及其对应值都是一个字符串。</p>
 <p>Properties 类被许多 Java 类使用。例如，在获取环境变量时它就作为 System.getProperties() 方法的返回值。</p>
 <p>Properties 定义如下实例变量.这个变量持有一个 Properties 对象相关的默认属性列表。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Properties defaults;</span><br></pre></td></tr></tbody></table></figure>
@@ -323,7 +323,7 @@
 <p>第二个构造方法使用propDefault 作为默认值。两种情况下，属性列表都为空：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Properties(Properties propDefault)</span><br></pre></td></tr></tbody></table></figure>
 
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>先大致过一遍，后面搞项目练手时不至于遇到就卡住！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>先大致过一遍，后面搞项目练手时不至于遇到就卡住！</p>
 
                 </div>
             </section>
@@ -363,7 +363,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-数据结构"><span class="toc-text">Java 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举（Enumeration）"><span class="toc-text">枚举（Enumeration）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#位集合（BitSet）"><span class="toc-text">位集合（BitSet）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量（Vector）"><span class="toc-text">向量（Vector）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈（Stack）"><span class="toc-text">栈（Stack）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字典（Dictionary）"><span class="toc-text">字典（Dictionary）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希表（Hashtable）"><span class="toc-text">哈希表（Hashtable）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-Hashtable-类"><span class="toc-text">Java Hashtable 类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性（Properties）"><span class="toc-text">属性（Properties）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-Properties-类"><span class="toc-text">Java Properties 类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-数据结构"><span class="toc-text">Java 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举（Enumeration）"><span class="toc-text">枚举（Enumeration）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位集合（BitSet）"><span class="toc-text">位集合（BitSet）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向量（Vector）"><span class="toc-text">向量（Vector）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈（Stack）"><span class="toc-text">栈（Stack）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典（Dictionary）"><span class="toc-text">字典（Dictionary）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希表（Hashtable）"><span class="toc-text">哈希表（Hashtable）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-Hashtable-类"><span class="toc-text">Java Hashtable 类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性（Properties）"><span class="toc-text">属性（Properties）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-Properties-类"><span class="toc-text">Java Properties 类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
 </div>
 
