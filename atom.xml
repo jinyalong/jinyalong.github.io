@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-12-27T07:36:32.394Z</updated>
+  <updated>2020-12-27T07:02:50.479Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Java集合框架</title>
-    <link href="http://yoursite.com/2020/12/27/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"/>
-    <id>http://yoursite.com/2020/12/27/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</id>
-    <published>2020-12-27T07:28:01.000Z</published>
-    <updated>2020-12-27T07:36:32.394Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java进阶学习" scheme="http://yoursite.com/categories/Java%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
   
   <entry>
     <title>Java数据结构</title>
