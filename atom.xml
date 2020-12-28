@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-12-28T11:03:30.442Z</updated>
+  <updated>2020-12-28T13:08:22.856Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git</title>
+    <link href="http://yoursite.com/2020/12/28/Git/"/>
+    <id>http://yoursite.com/2020/12/28/Git/</id>
+    <published>2020-12-28T11:57:50.000Z</published>
+    <updated>2020-12-28T13:08:22.856Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><p><strong>Git是一个分布式版本管理控制系统</strong></p><p>Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。世界各地的人为Linux编写代码，而在2002年以前都是由Linus本人通过手工方式合并代码！</p><p>代码库过大，手工管理难度大，于是Linus选择了一个商业的版本控制系统BitKeeper，BitKeeper授权Linux社区免费使用这个版本控制系统。开发Samba的Andrew试图破解BitKeeper的协议，被BitMover公司发现了，于是BitMover公司怒了，要收回Linux社区的免费使用权。</p><p>然后Linus自己用C语言花了两周自己写了一个分布式版本控制系统，这就是Git！</p><p>~~太强了！！！</p><p><img src="/2020/12/28/Git/3.png" alt></p><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>最早Git是在Linux上开发的，很长一段时间内，Git也只能在Linux和Unix系统上跑。不过，慢慢地有人把它移植到了Windows上。现在，Git可以在Linux、Unix、Mac和Windows这几大平台上正常运行了。</p><p>Windows安装git</p><p><img src="/2020/12/28/Git/1.png" alt></p><p>下载后右键菜单多出两个东西。</p><p><code>Git Bush Here</code>就是命令行使用<code>git</code></p><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>使用命令<code>$ git init</code>把当前目录变成Git可以管理的版本库，目录多出一个<code>.git</code>文件夹</p><p><img src="/2020/12/28/Git/2.png" alt></p><p>这个目录是Git来跟踪管理版本库的</p><p><strong>把文件添加到版本库</strong></p><p>所有的版本控制系统，其实只能跟踪文本文件的改动，比如TXT文件，网页，所有的程序代码等等。</p><p>而图片、视频这些二进制文件，虽然也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是只知道图片从100KB改成了120KB，但到底改了啥，版本控制系统不知道，也没法知道。</p><p>Microsoft的Word格式是二进制格式，因此，版本控制系统是没法跟踪Word文件的改动的。</p><p>如果要真正使用版本控制系统，就要以纯文本方式编写文件。</p><p>因为文本是有编码的，使用标准的UTF-8编码，所有语言使用同一种编码，既没有冲突，又被所有平台所支持。</p><p>千万不要使用Windows自带的<strong>记事本</strong>编辑任何文本文件。原因是Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符！！！</p><p>第一步，用命令<code>git add</code>告诉Git，把文件添加到仓库</p><p>第二步，用命令<code>git commit</code>告诉Git，把文件提交到仓库</p><p><img src="/2020/12/28/Git/4.png" alt></p><p><code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明</p><h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h2><p>现在更改readme.md文件内容为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A test：change the file</span><br></pre></td></tr></table></figure><p>使用<code>$git status</code>指令查看仓库状态，会显示readme.txt被修改过，但是未提交</p><p>然后使用<code>$git diff</code>指令可以查看修改了什么内容：</p><p><img src="/2020/12/28/Git/5.png" alt></p><p><code>git diff</code>顾名思义就是查看difference，显示的格式正是Unix通用的diff格式</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Git简介&quot;&gt;&lt;a href=&quot;#Git简介&quot; class=&quot;headerlink&quot; title=&quot;Git简介&quot;&gt;&lt;/a&gt;Git简介&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Git是一个分布式版本管理控制系统&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Linus在1991年创建了开源
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+      <category term="代码管理工具" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="分布式" scheme="http://yoursite.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>注解</title>
