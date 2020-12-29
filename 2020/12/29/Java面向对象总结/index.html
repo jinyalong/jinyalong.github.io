@@ -10,7 +10,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>注解 | CodeFriday</title>
+	<title>Java面向对象总结 | CodeFriday</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -38,14 +38,14 @@
 
 	<meta property="og:site_name" content="CodeFriday">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="注解 | CodeFriday">
+	<meta property="og:title" content="Java面向对象总结 | CodeFriday">
 	<meta property="og:description" content="">
-	<meta property="og:url" content="http://yoursite.com/2020/12/28/%E6%B3%A8%E8%A7%A3/">
+	<meta property="og:url" content="http://yoursite.com/2020/12/29/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93/">
 
 	
-	<meta property="article:published_time" content="2020-12-28T18:12:00+08:00"> 
+	<meta property="article:published_time" content="2020-12-29T16:12:00+08:00"> 
 	<meta property="article:author" content="codefriday">
-	<meta property="article:published_first" content="CodeFriday, /2020/12/28/%E6%B3%A8%E8%A7%A3/">
+	<meta property="article:published_first" content="CodeFriday, /2020/12/29/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93/">
 	
 <link rel="alternate" href="/atom.xml" title="CodeFriday" type="application/atom+xml">
 </head>
@@ -117,80 +117,68 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2020-12-28T10:03:48.000Z" itemprop="datePublished">
-                    2020-12-28
+                <time class="post-full-meta-date" datetime="2020-12-29T08:35:16.000Z" itemprop="datePublished">
+                    2020-12-29
                 </time>
                 
                 <span class="date-divider">/</span>
                 
-                <a href="/categories/Java%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">Java进阶学习</a>&nbsp;&nbsp;
+                <a href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E5%AD%A6%E4%B9%A0/">第一阶段学习</a>&nbsp;&nbsp;
                 
                 
             </section>
-            <h1 class="post-full-title">注解</h1>
+            <h1 class="post-full-title">Java面向对象总结</h1>
         </header>
         <article class="post-full no-image">
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h2 id="什么是注解"><a href="#什么是注解" class="headerlink" title="什么是注解"></a>什么是注解</h2><p>注解是放在Java源码的类、方法、字段、参数前的一种特殊“注释”，如<code>@Override</code></p>
-<p><strong>注释和注解的区别：</strong></p>
-<p>注释会被编译器直接忽略，注解则可以被编译器打包进入class文件，因此，注解是一种用作标注的“元数据”。</p>
-<h2 id="注解的作用"><a href="#注解的作用" class="headerlink" title="注解的作用"></a>注解的作用</h2><p><strong>从JVM的角度看，注解本身对代码逻辑没有任何影响，如何使用注解完全由工具决定。</strong></p>
-<p>Java的注解可以分为三类：</p>
-<p>第一类是由编译器使用的注解，例如：</p>
+                    <h2 id="Java面向对象三大特性脑图"><a href="#Java面向对象三大特性脑图" class="headerlink" title="Java面向对象三大特性脑图"></a>Java面向对象三大特性脑图</h2><p><img alt="" class="post-img b-lazy" href="/2020/12/29/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93/OOP%E6%80%BB%E7%BB%93.jpg" data-src="/2020/12/29/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93/OOP%E6%80%BB%E7%BB%93.jpg"></p>
+<h2 id="instanceof关键字"><a href="#instanceof关键字" class="headerlink" title="instanceof关键字"></a>instanceof关键字</h2><p><code>X instance of Y</code></p>
 <ul>
-<li><code>@Override</code>：让编译器检查该方法是否正确地实现了覆写；</li>
-<li><code>@SuppressWarnings</code>：告诉编译器忽略此处代码产生的警告。</li>
+<li><p>编译通过的条件</p>
+<p>X是Y的子类，X和Y的类型应该去看定义的左边，而不是new的右边所指向的东西</p>
+</li>
+<li><p>比较结果</p>
+<p>X指向的类（看右边引用）是Y的子类</p>
+</li>
 </ul>
-<p>这类注解不会被编译进入<code>.class</code>文件，它们在编译后就被编译器扔掉了。</p>
-<p>第二类是由工具处理<code>.class</code>文件使用的注解，比如有些工具会在加载class的时候，对class做动态修改，实现一些特殊的功能。这类注解会被编译进入<code>.class</code>文件，但加载结束后并不会存在于内存中。这类注解只被一些底层库使用，一般我们不必自己处理。</p>
-<p>第三类是在程序运行期能够读取的注解，它们在加载后一直存在于JVM中，这也是最常用的注解。例如，一个配置了<code>@PostConstruct</code>的方法会在调用构造方法后自动被调用（这是Java代码读取该注解实现的功能，JVM并不会识别该注解）。</p>
-<h2 id="定义注解"><a href="#定义注解" class="headerlink" title="定义注解"></a>定义注解</h2><p>Java语言使用<code>@interface</code>语法来定义注解（<code>Annotation</code>），它的格式如下：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public @interface Report {</span><br><span class="line">    int type() default 0;</span><br><span class="line">    String level() default "info";</span><br><span class="line">    String value() default "";</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>类型之间的转换</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">父类 -------&gt; 子类</span><br><span class="line">高类 -------&gt; 低类</span><br><span class="line">    必须使用强制类型装换</span><br><span class="line">  </span><br><span class="line">子类 -------&gt; 父类</span><br><span class="line">低 -------&gt; 高</span><br><span class="line">    不需要强制类型转换，但是会丢失子类的方法</span><br></pre></td></tr></tbody></table></figure>
 
-<p>注解的参数类似无参数方法，可以用<code>default</code>设定一个默认值。最常用的参数应当命名为<code>value</code>。</p>
-<p>定义一个注解Demo程序：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Annotation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@interface</span> check {</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">()</span> <span class="keyword">default</span> 1000</span>;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> <span class="keyword">default</span> 0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@check</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><h3 id="修饰变量"><a href="#修饰变量" class="headerlink" title="修饰变量"></a>修饰变量</h3><p>静态的：可以直接通过<code>类名.变量名</code>格式直接访问，无论实例化多少对象，都只有一个！</p>
+<p>//多线程</p>
+<p>非静态的：必须先实例化类，才能使用</p>
+<h3 id="修饰方法"><a href="#修饰方法" class="headerlink" title="修饰方法"></a>修饰方法</h3><p>静态的：可直接调用（类加载时就加载了static修饰的）</p>
+<p>非静态的：必须先实例化类，才能通过实例的对象使用</p>
+<h3 id="修饰代码块"><a href="#修饰代码块" class="headerlink" title="修饰代码块"></a>修饰代码块</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">静态代码块</span><br><span class="line"><span class="keyword">static</span>{} —— 最先执行，只执行一次，第一次加载类时执行</span><br><span class="line">匿名代码块：</span><br><span class="line">{} 	-- 先于构造器之前执行</span><br></pre></td></tr></tbody></table></figure>
 
-<p>注解定义了并没有任何实际意义</p>
-<h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><p>有一些注解可以修饰其他注解，这些注解就称为元注解（meta annotation）。Java标准库已经定义了一些元注解，我们只需要使用元注解，通常不需要自己去编写元注解。</p>
-<h3 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h3><p>最常用的元注解是<code>@Target</code>。使用<code>@Target</code>可以定义<code>Annotation</code>能够被应用于源码的哪些位置：</p>
-<ul>
-<li>类或接口：<code>ElementType.TYPE</code>；</li>
-<li>字段：<code>ElementType.FIELD</code>；</li>
-<li>方法：<code>ElementType.METHOD</code>；</li>
-<li>构造方法：<code>ElementType.CONSTRUCTOR</code>；</li>
-<li>方法参数：<code>ElementType.PARAMETER</code>。</li>
-</ul>
-<p>例如，定义注解可用在方法上，我们必须添加一个<code>@Target(ElementType.METHOD)</code></p>
-<p>实际上<code>@Target</code>定义的<code>value</code>是<code>ElementType[]</code>数组，只有一个元素时，可以省略数组的写法。</p>
-<h3 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h3><p><code>@Retention</code>定义了<code>Annotation</code>的生命周期：</p>
-<ul>
-<li>仅编译期：<code>RetentionPolicy.SOURCE</code>；</li>
-<li>仅class文件：<code>RetentionPolicy.CLASS</code>；</li>
-<li>运行期：<code>RetentionPolicy.RUNTIME</code>。</li>
-</ul>
-<h3 id="Repeatable"><a href="#Repeatable" class="headerlink" title="@Repeatable"></a>@Repeatable</h3><p>使用<code>@Repeatable</code>这个元注解可以定义<code>Annotation</code>是否可重复。</p>
-<h3 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h3><p>使用<code>@Inherited</code>定义子类是否可继承父类定义的<code>Annotation</code>。<code>@Inherited</code>仅针对<code>@Target(ElementType.TYPE)</code>类型的<code>annotation</code>有效，并且仅针对<code>class</code>的继承，对<code>interface</code>的继承无效.</p>
-<h2 id="处理注解"><a href="#处理注解" class="headerlink" title="处理注解"></a>处理注解</h2><p>只需要考虑如何读取<code>RUNTIME</code>类型的注解。</p>
-<p>因为注解定义后也是一种<code>class</code>，所有的注解都继承自<code>java.lang.annotation.Annotation</code>，因此，读取注解，需要使用反射API。</p>
-<p>Java提供的使用反射API读取<code>Annotation</code>的方法包括：</p>
-<p>判断某个注解是否存在于<code>Class</code>、<code>Field</code>、<code>Method</code>或<code>Constructor</code>：</p>
-<ul>
-<li><code>Class.isAnnotationPresent(Class)</code></li>
-<li><code>Field.isAnnotationPresent(Class)</code></li>
-<li><code>Method.isAnnotationPresent(Class)</code></li>
-<li><code>Constructor.isAnnotationPresent(Class)</code></li>
-</ul>
-<p>使用反射API读取Annotation：</p>
-<ul>
-<li><code>Class.getAnnotation(Class)</code></li>
-<li><code>Field.getAnnotation(Class)</code></li>
-<li><code>Method.getAnnotation(Class)</code></li>
-<li><code>Constructor.getAnnotation(Class)</code></li>
-</ul>
-<p>定义了注解，本身对程序逻辑没有任何影响。我们必须自己编写代码来使用注解。</p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p><strong>本质还是类！！！</strong></p>
+<p>抽象（封装继承多态）的抽象</p>
+<p>抽象类是一种约束~~</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1.不能new这个抽线类，只能有子类实现</p>
+<p>2.抽线类可以写普通方法</p>
+<p>3.抽象方法必须存在于抽象类中</p>
+<p><strong>4.存在构造器</strong></p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p><strong>递进关系：</strong></p>
+<p>普通类：只有具体实现</p>
+<p>抽象类：具体实现，规范（抽象方法）都可以有</p>
+<p><strong>接口：只有规范</strong></p>
+<p>声明类的关键字：<code>class</code></p>
+<p>声明接口的关键字：<code>interface</code>（本质就不是类了）</p>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><p>其中定义一个方法默认有的修饰符：<code>public abstract</code></p>
+<p>定义变量默认有的修饰符：<code>public static final</code></p>
+<p><code>implements</code>关键字实现，可多继承，侧面实现了多继承！！！</p>
+<p>继承时必须重写接口中所有方法</p>
+<h2 id="扩展概念——内部类"><a href="#扩展概念——内部类" class="headerlink" title="扩展概念——内部类"></a>扩展概念——内部类</h2><p>一个类的内部去定义一个新的类</p>
+<h3 id="1-成员内部类"><a href="#1-成员内部类" class="headerlink" title="1.成员内部类"></a>1.成员内部类</h3><p>类作为类的成员之一</p>
+<p>内部类可以获得外部类的私有属性（通过方法）</p>
+<p>内部类实例化方法：先实例化外部类，再使用外部类来实例化内部类</p>
+<h3 id="2-静态内部类"><a href="#2-静态内部类" class="headerlink" title="2.静态内部类"></a>2.静态内部类</h3><p>static修饰之后就不能用外部类私有属性了</p>
+<p>原因：static最先加载，都还不知道私有属性是啥！！！</p>
+<h3 id="3-一个java类"><a href="#3-一个java类" class="headerlink" title="3.一个java类"></a>3.一个java类</h3><p>可以有多个<code>class</code>类但只能有一个<code>public class</code>类</p>
+<h3 id="4-局部内部类"><a href="#4-局部内部类" class="headerlink" title="4.局部内部类"></a>4.局部内部类</h3><p>方法中定义类</p>
+<h3 id="5-匿名内部类"><a href="#5-匿名内部类" class="headerlink" title="5.匿名内部类"></a>5.匿名内部类</h3><p>接口也可new但是必须重写方法</p>
 
                 </div>
             </section>
@@ -201,14 +189,10 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="Git" href="/2020/12/28/Git/">
-            ← Git
-        </a>
-        
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="反射" href="/2020/12/28/%E5%8F%8D%E5%B0%84/">
-            反射 →
+        <a class="next-post" title="Git" href="/2020/12/28/Git/">
+            Git →
         </a>
         
     </nav>
@@ -234,7 +218,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是注解"><span class="toc-text">什么是注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解的作用"><span class="toc-text">注解的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义注解"><span class="toc-text">定义注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元注解"><span class="toc-text">元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Target"><span class="toc-text">@Target</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retention"><span class="toc-text">@Retention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Repeatable"><span class="toc-text">@Repeatable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inherited"><span class="toc-text">@Inherited</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理注解"><span class="toc-text">处理注解</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java面向对象三大特性脑图"><span class="toc-text">Java面向对象三大特性脑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#instanceof关键字"><span class="toc-text">instanceof关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static关键字"><span class="toc-text">static关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修饰变量"><span class="toc-text">修饰变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修饰方法"><span class="toc-text">修饰方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修饰代码块"><span class="toc-text">修饰代码块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象类"><span class="toc-text">抽象类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口"><span class="toc-text">接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点-1"><span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展概念——内部类"><span class="toc-text">扩展概念——内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-成员内部类"><span class="toc-text">1.成员内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-静态内部类"><span class="toc-text">2.静态内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-一个java类"><span class="toc-text">3.一个java类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-局部内部类"><span class="toc-text">4.局部内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-匿名内部类"><span class="toc-text">5.匿名内部类</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -415,7 +399,7 @@
         </a>
     </div>
     <span class="floating-header-divider">—</span>
-    <div class="floating-header-title">注解</div>
+    <div class="floating-header-title">Java面向对象总结</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
