@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GUI编程</title>
+    <url>/2021/01/01/GUII%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+      <tags>
+        <tag>第一阶段</tag>
+        <tag>GUI编程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>编码和字符集</title>
     <url>/2021/01/01/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/</url>
     <content><![CDATA[<h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>世界上只有两种人——一种会二进制，一种不会二进制<del>~</del><br>在初学C++时，接触最多的编码就是ASCII码了，全称((American Standard Code for Information Interchange): 美国信息交换标准代码），是老外发明的，老外用的，主要用于显示现代英语和其他西欧语言。</p>
@@ -185,10 +197,10 @@
 <p>显然不符合Hash算法均匀分布的原则。</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习感悟</category>
+        <category>第一阶段感悟</category>
       </categories>
       <tags>
-        <tag>第一阶段学习感悟</tag>
+        <tag>第一阶段感悟</tag>
       </tags>
   </entry>
   <entry>
@@ -285,10 +297,10 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>集合可以看作是一种容器，用来存储对象信息。所有集合类都位于java.util包下，但支持多线程的集合类位于java.util.concurrent包下。</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习感悟</category>
+        <category>第一阶段感悟</category>
       </categories>
       <tags>
-        <tag>第一阶段学习感悟</tag>
+        <tag>第一阶段感悟</tag>
       </tags>
   </entry>
   <entry>
@@ -342,10 +354,10 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h3 id="5-匿名内部类"><a href="#5-匿名内部类" class="headerlink" title="5.匿名内部类"></a>5.匿名内部类</h3><p>接口也可new但是必须重写方法</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习感悟</category>
+        <category>第一阶段感悟</category>
       </categories>
       <tags>
-        <tag>第一阶段学习感悟</tag>
+        <tag>第一阶段感悟</tag>
       </tags>
   </entry>
   <entry>
@@ -456,10 +468,11 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <p>定义了注解，本身对程序逻辑没有任何影响。我们必须自己编写代码来使用注解。</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段</tag>
+        <tag>JAVA基础</tag>
       </tags>
   </entry>
   <entry>
@@ -543,10 +556,11 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>反射技术内容其实很多，目前暂时先建立概念框架，以及简单Demo，这种技术用的多的是在框架中，等到学习Java第一个框架——集合框架再研究深一点！！！</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段</tag>
+        <tag>JAVA基础</tag>
       </tags>
   </entry>
   <entry>
@@ -600,10 +614,11 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <p>抽离了数据类型与代码逻辑，本意是提高程序代码的简洁性和可读性，并提供可能的编译时类型转换安全检测功能。</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段</tag>
+        <tag>JAVA基础</tag>
       </tags>
   </entry>
   <entry>
@@ -802,10 +817,11 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>先大致过一遍，后面搞项目练手时不至于遇到就卡住！</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段</tag>
+        <tag>JAVA基础</tag>
       </tags>
   </entry>
   <entry>
@@ -1201,10 +1217,11 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h3 id="8-5设置-CLASSPATH-系统变量"><a href="#8-5设置-CLASSPATH-系统变量" class="headerlink" title="8.5设置 CLASSPATH 系统变量"></a>8.5设置 CLASSPATH 系统变量</h3><p>就像安装JDK时设置系统变量一样用自己的包！！！</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段</tag>
+        <tag>JAVA基础</tag>
       </tags>
   </entry>
   <entry>
@@ -2592,10 +2609,11 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 </ul>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段</tag>
+        <tag>JAVA基础</tag>
       </tags>
   </entry>
 </search>
