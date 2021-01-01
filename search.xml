@@ -31,10 +31,10 @@
 <p>显然不符合Hash算法均匀分布的原则。</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段学习感悟</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段学习感悟</tag>
       </tags>
   </entry>
   <entry>
@@ -131,10 +131,10 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>集合可以看作是一种容器，用来存储对象信息。所有集合类都位于java.util包下，但支持多线程的集合类位于java.util.concurrent包下。</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段学习感悟</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段学习感悟</tag>
       </tags>
   </entry>
   <entry>
@@ -188,10 +188,10 @@ public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
 <h3 id="5-匿名内部类"><a href="#5-匿名内部类" class="headerlink" title="5.匿名内部类"></a>5.匿名内部类</h3><p>接口也可new但是必须重写方法</p>
 ]]></content>
       <categories>
-        <category>第一阶段学习</category>
+        <category>第一阶段学习感悟</category>
       </categories>
       <tags>
-        <tag>第一阶段学习</tag>
+        <tag>第一阶段学习感悟</tag>
       </tags>
   </entry>
   <entry>
