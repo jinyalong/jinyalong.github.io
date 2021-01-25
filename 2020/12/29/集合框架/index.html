@@ -1,0 +1,528 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+	
+	
+	
+<link rel="stylesheet" href="/css/allinone.min.css">
+
+
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>集合框架 | CodeFriday</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="codefriday">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	<link rel="apple-touch-icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="CodeFriday">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="集合框架 | CodeFriday">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="http://yoursite.com/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
+
+	
+	<meta property="article:published_time" content="2020-12-29T22:12:00+08:00"> 
+	<meta property="article:author" content="codefriday">
+	<meta property="article:published_first" content="CodeFriday, /2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
+	
+<link rel="alternate" href="/atom.xml" title="CodeFriday" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/jinyalong" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"></path></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://blog.csdn.net/HNUCSEE" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 1024"><path d="M1141.351404 39.055942l-28.91333 218.474629c-126.144728-19.927251-251.601043-38.376709-377.75495-27.674187-115.460564 9.802996-227.405635 32.180995-309.124802 122.987208-150.018878 166.696821-68.391499 396.461416 158.252293 437.463272 141.115408 25.52634 283.919721 11.785624 425.448176-8.123269-5.452228 112.440727-5.764308 95.303843-10.674985 205.229569-1.073924 24.057726 4.277337 14.612705-161.648461 31.914809-176.004159 9.004437-351.879815 11.189-520.550085-52.888447C156.545029 905.721534 30.675666 809.16019 5.176863 630.815428c-26.251468-183.595056 48.803865-331.796524 192.516883-446.128091C413.36883 13.098197 790.802521-47.271 1141.351404 39.055942z" fill="#ffffff"></path></svg>
+    </a>
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-12-29T14:44:57.000Z" itemprop="datePublished">
+                    2020-12-29
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a>&nbsp;&nbsp;
+                
+                
+            </section>
+            <h1 class="post-full-title">集合框架</h1>
+        </header>
+        <article class="post-full no-image">
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Java语言本身和C语言区别不大，所以很快建立了面向对象的思想后，有语法基础的支持，了解了泛型、注解、反射等概念后。可以开始学习Java强大的数据结构了——集合框架。</p>
+<p>集合框架被设计成要满足以下几个目标。</p>
+<ul>
+<li>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。</li>
+<li>该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。</li>
+<li>对一个集合的扩展和适应必须是简单的。</li>
+</ul>
+<h2 id="框架图"><a href="#框架图" class="headerlink" title="框架图"></a>框架图</h2><p>来自网络资源</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.gif" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.gif"></p>
+<h2 id="接口-amp-实现（类）-amp-算法"><a href="#接口-amp-实现（类）-amp-算法" class="headerlink" title="接口&amp;实现（类）&amp;算法"></a>接口&amp;实现（类）&amp;算法</h2><ul>
+<li><p><strong>接口：</strong></p>
+<p>上图中虚线框均是接口，代表集合的抽象数据类型，之所以定义多个接口，是为了以不同的方式操作集合对象。</p>
+</li>
+<li><p><strong>实现（类）：</strong></p>
+<p>是集合接口的具体实现。从本质上讲，它们是可重复使用的数据结构，例如：ArrayList、LinkedList、HashSet、HashMap。</p>
+</li>
+<li><p><strong>算法：</strong></p>
+<p>实现集合接口的对象里的方法执行的一些有用的计算，例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</p>
+</li>
+</ul>
+<h2 id="直接剖析JDK源码理解集合框架"><a href="#直接剖析JDK源码理解集合框架" class="headerlink" title="直接剖析JDK源码理解集合框架"></a>直接剖析JDK源码理解集合框架</h2><h3 id="展开Collection"><a href="#展开Collection" class="headerlink" title="展开Collection"></a>展开Collection</h3><p>在IDEA中打出关键字<code>Collection</code>——按住<code>Ctrl</code>点击进入<code>Collection</code>源代码——使用<code>Ctrl+H</code>快捷键即可查看集合继承关系如图：</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/1.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/1.png"></p>
+<p>首先可以观察到<code>Collection</code>本身就是一个接口并且这些东西都有锁，不可更改</p>
+<ul>
+<li><pre><code>SynchronizedCollection in Collections
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  具体实现类，与线程安全有关。</span><br><span class="line"></span><br><span class="line">+</span><br></pre></td></tr></tbody></table></figure>
+ValuesView in ConcurrentHashMap
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  具体实现类，与锁，线程安全有关。</span><br><span class="line"></span><br><span class="line">+</span><br></pre></td></tr></tbody></table></figure>
+BeanContext
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  提供与 bean 上下文有关的类和接口，暂时不懂~</span><br><span class="line"></span><br><span class="line">+</span><br></pre></td></tr></tbody></table></figure>
+List
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">一个接口，源码：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">定义：public interface List&lt;E&gt; extends Collection&lt;E&gt;</span><br><span class="line">    泛型，单继承自Collection</span><br></pre></td></tr></tbody></table></figure>
+
+源码1068行，完后只是定义了41种方法，其中一种是重写了父接口的~自己数的不知道准不
+
+接口只定义方法，不能带具体实现，因此大部分是函数的文档注释。</code></pre></li>
+<li><pre><code>AbstractCollection
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实现了大部分的集合接口</span><br><span class="line"></span><br><span class="line">最简单的一个`isEmpty()`的实现源码带文档注释如下：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">/**</span><br><span class="line">     * {@inheritDoc}</span><br><span class="line">     *</span><br><span class="line">     * @implSpec</span><br><span class="line">     * This implementation returns {@code size() == 0}.</span><br><span class="line">     */</span><br><span class="line">    public boolean isEmpty() {</span><br><span class="line">        return size() == 0;</span><br><span class="line">    }</span><br><span class="line">//直接调用size方法的返回值判断</span><br></pre></td></tr></tbody></table></figure></code></pre></li>
+<li><pre><code>CollectionView
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">源码中定义如下：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">abstract static class CollectionView&lt;K,V,E&gt;</span><br><span class="line">        implements Collection&lt;E&gt;, java.io.Serializable</span><br></pre></td></tr></tbody></table></figure>
+
+暂时不知道干嘛用的</code></pre></li>
+<li><pre><code>CheckedCollection
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  也不懂干嘛用的</span><br><span class="line"></span><br><span class="line">+</span><br></pre></td></tr></tbody></table></figure>
+Set
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">一个接口，继承至`Collection`</span><br><span class="line"></span><br><span class="line">源码中定义如下：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">public interface Set&lt;E&gt; extends Collection&lt;E&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+和`List`一样就定义了一堆方法.</code></pre></li>
+<li><pre><code>UnmodifiableCollection
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  ???</span><br><span class="line"></span><br><span class="line">+</span><br></pre></td></tr></tbody></table></figure>
+Queue
+源码中的定义
+public interface Queue&lt;E&gt; extends Collection&lt;E&gt;
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  定义一堆方法。</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">**主要关注接口部分继续展开`List`、`Set`、`Queue`**</span><br><span class="line"></span><br><span class="line">#### 展开List</span><br><span class="line"></span><br><span class="line"> `List`第一条分支实现了`Vector`-&gt;`Stack`</span><br><span class="line"></span><br><span class="line">![](集合框架/3.png)</span><br><span class="line"></span><br><span class="line">`Vector`源码中定义如下：</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">public class Vector&lt;E&gt;</span><br><span class="line">    extends AbstractList&lt;E&gt;</span><br><span class="line">    implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</span><br><span class="line">//继承AbstractList类，并实现List接口</span><br></pre></td></tr></tbody></table></figure>
+</code></pre></li>
+</ul>
+<p><code>Stack</code>中源码定义如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">//继承一个实体类，<span class="title">Vector</span>基础新增一些方法</span></span><br><span class="line"><span class="class">//如：</span></span><br><span class="line"><span class="class"> /**</span></span><br><span class="line"><span class="class">     * <span class="title">Pushes</span> <span class="title">an</span> <span class="title">item</span> <span class="title">onto</span> <span class="title">the</span> <span class="title">top</span> <span class="title">of</span> <span class="title">this</span> <span class="title">stack</span>. <span class="title">This</span> <span class="title">has</span> <span class="title">exactly</span></span></span><br><span class="line">     * the same effect as:</span><br><span class="line">     * &lt;blockquote&gt;&lt;pre&gt;</span><br><span class="line">     * addElement(item)&lt;/pre&gt;&lt;/blockquote&gt;</span><br><span class="line">     *</span><br><span class="line">     * <span class="meta">@param</span>   item   the item to be pushed onto <span class="keyword">this</span> stack.</span><br><span class="line">     * <span class="meta">@return</span>  the {<span class="meta">@code</span> item} argument.</span><br><span class="line">     * @see     java.util.Vector#addElement</span><br><span class="line">     */</span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span> </span>{</span><br><span class="line">        addElement(item);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>ArrayList</code>也是直接实现了List接口</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//源码定义如下：</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class">//先继承了<span class="title">AbstractList</span>然后实现<span class="title">List</span>接口</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>LinkedList</code></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class">    //实现了<span class="title">List</span>和<span class="title">Deque</span>接口</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="展开Queue"><a href="#展开Queue" class="headerlink" title="展开Queue"></a>展开Queue</h4><p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/5.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/5.png"></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface Deque&lt;E&gt; extends Queue&lt;E&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>Deque</code>接口被<code>LinkedList</code>和<code>ArrayDeque</code>实现，定义源码如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class">    </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ArrayDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractCollection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">                           <span class="keyword">implements</span> <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">Serializable</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>阻塞队列接口<code>BlockingQueue</code>继承自Queue接口，然后<code>BlockingDeque</code>继承<code>BlockingQueue</code>和<code>Deque</code></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt; </span></span><br><span class="line"><span class="class">    </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">BlockingDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="展开set"><a href="#展开set" class="headerlink" title="展开set"></a>展开set</h4><p>源码中的重要定义</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/6.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/6.png"></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"> </span></span><br><span class="line"><span class="class"> <span class="title">public</span> <span class="title">class</span> <span class="title">LinkedHashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后<code>AbstractSet</code>下生成很多种<code>Set</code>已经开始有点懵~</p>
+<p>大致框架最重要的部分应该是<code>Collection</code>下生成的一些的抽象类，即实现了接口中大部分方法的类</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/7.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/7.png"></p>
+<p>然后大致理出<code>Collection</code>这条线生成的直接用的，并且用的多的数据结构如图，不全<del>~</del></p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/8.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/8.png"></p>
+<h3 id="展开Map"><a href="#展开Map" class="headerlink" title="展开Map"></a>展开Map</h3><p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/9.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/9.png"></p>
+<p>大致关系如下：(红色表示接口，绿色表示可用的实现类)</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/10.png" data-src="/2020/12/29/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/10.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>集合可以看作是一种容器，用来存储对象信息。所有集合类都位于java.util包下，但支持多线程的集合类位于java.util.concurrent包下。</p>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="关于HashMap" href="/2020/12/30/%E5%85%B3%E4%BA%8EHashMap/">
+            ← 关于HashMap
+        </a>
+        
+        <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="Java面向对象总结" href="/2020/12/29/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93/">
+            Java面向对象总结 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"></path></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"></path></svg>
+            <svg class="toc-close hide" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"></path><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"></path></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"></path></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框架图"><span class="toc-text">框架图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口-amp-实现（类）-amp-算法"><span class="toc-text">接口&amp;实现（类）&amp;算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接剖析JDK源码理解集合框架"><span class="toc-text">直接剖析JDK源码理解集合框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#展开Collection"><span class="toc-text">展开Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#展开Queue"><span class="toc-text">展开Queue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#展开set"><span class="toc-text">展开set</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#展开Map"><span class="toc-text">展开Map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">— CodeFriday —</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2021/01/17/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/01/17/IO/">IO</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/01/04/GUI%E5%AE%9E%E6%88%98-%E8%B4%AA%E5%90%83%E8%9B%87%E5%B0%8F%E6%B8%B8%E6%88%8F/">GUI实战-贪吃蛇小游戏</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">Categories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li></ul>
+        </ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">Tag Cloud</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 19px;">第一阶段感悟</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="CodeFriday">CodeFriday</a>
+			© 2021
+		</section>
+		<nav class="site-footer-nav">
+			
+        </nav>
+		<span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+	<p align="center">
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("12/25/2020 00:00:00");//此处建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+	setInterval("createtime()",250);
+	</script>
+	</p>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="CodeFriday">
+			
+                <img src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday icon">
+			
+            <span>CodeFriday</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">集合框架</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: false,
+        appId: 'u5Keac77Cgj26AHTOFXr2N32-gzGzoHsz',
+        appKey: 'eokpYg7BxMlX9Cs31zsM56A9',
+        placeholder: '欢迎留言！',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+
+
+</body></html>

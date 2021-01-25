@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+	
+	
+	
+<link rel="stylesheet" href="/css/allinone.min.css">
+
+
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>泛型 | CodeFriday</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="codefriday">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	<link rel="apple-touch-icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="CodeFriday">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="泛型 | CodeFriday">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="http://yoursite.com/2020/12/28/%E6%B3%9B%E5%9E%8B/">
+
+	
+	<meta property="article:published_time" content="2020-12-28T13:12:00+08:00"> 
+	<meta property="article:author" content="codefriday">
+	<meta property="article:published_first" content="CodeFriday, /2020/12/28/%E6%B3%9B%E5%9E%8B/">
+	
+<link rel="alternate" href="/atom.xml" title="CodeFriday" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/jinyalong" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"></path></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://blog.csdn.net/HNUCSEE" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 1024"><path d="M1141.351404 39.055942l-28.91333 218.474629c-126.144728-19.927251-251.601043-38.376709-377.75495-27.674187-115.460564 9.802996-227.405635 32.180995-309.124802 122.987208-150.018878 166.696821-68.391499 396.461416 158.252293 437.463272 141.115408 25.52634 283.919721 11.785624 425.448176-8.123269-5.452228 112.440727-5.764308 95.303843-10.674985 205.229569-1.073924 24.057726 4.277337 14.612705-161.648461 31.914809-176.004159 9.004437-351.879815 11.189-520.550085-52.888447C156.545029 905.721534 30.675666 809.16019 5.176863 630.815428c-26.251468-183.595056 48.803865-331.796524 192.516883-446.128091C413.36883 13.098197 790.802521-47.271 1141.351404 39.055942z" fill="#ffffff"></path></svg>
+    </a>
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-12-28T05:00:25.000Z" itemprop="datePublished">
+                    2020-12-28
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>&nbsp;&nbsp;
+                
+                
+            </section>
+            <h1 class="post-full-title">泛型</h1>
+        </header>
+        <article class="post-full no-image">
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>其实Java中的泛型也就是C++中的模板类。C++中用的最多的就是STL中。之所以用到泛型其实就是使得一个函数的功能更强大，或者说一个类的功能更强大。比如写一个函数比较两个元素大小，在C++中有float类型，int类型，double甚至string时每种格式数据都需要写一个函数，很麻烦。</p>
+<p>什么是泛型？为什么要使用泛型？</p>
+<p><strong>泛型，即“参数化类型”。一提到参数，最熟悉的就是定义方法时有形参，然后调用此方法时传递实参。那么参数化类型怎么理解呢？顾名思义，就是将类型由原来的具体的类型参数化，类似于方法中的变量参数，此时类型也定义成参数形式（可以称之为类型形参），然后在使用/调用时传入具体的类型（类型实参）。</strong></p>
+<p><strong>泛型的本质是为了参数化类型（在不创建新的类型的情况下，通过泛型指定的不同类型来控制形参具体限制的类型）</strong>。也就是说在泛型使用过程中，操作的数据类型被指定为一个参数，这种参数类型可以用在类、接口和方法中，分别被称为泛型类、泛型接口、泛型方法。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>在JDK1.5版本之前没有泛型，因此可以定义一个可以接收任何对象的List，</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/28/%E6%B3%9B%E5%9E%8B/1.png" data-src="/2020/12/28/%E6%B3%9B%E5%9E%8B/1.png"></p>
+<p>定义一个ArrayList，格式是Object，所有类的父类</p>
+<p><img alt="" class="post-img b-lazy" href="/2020/12/28/%E6%B3%9B%E5%9E%8B/2.png" data-src="/2020/12/28/%E6%B3%9B%E5%9E%8B/2.png"></p>
+<p>上述问题是运行是产生问题。</p>
+<p>为了解决类似这样的问题（在编译阶段就可以解决），泛型应运而生。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>泛型只在编译阶段有效。编译之后程序会采取去泛型化的措施，也就是说Java中的泛型，只在编译阶段有效。</p>
+<p>在编译过程中，正确检验泛型结果后，会将泛型的相关信息擦出，并且在对象进入和离开方法的边界处添加类型检查和类型转换的方法。也就是说，泛型信息不会进入到运行时阶段。</p>
+<p><strong>型类型在逻辑上看以看成是多个不同的类型，实际上都是相同的基本类型。</strong></p>
+<h2 id="泛型的使用"><a href="#泛型的使用" class="headerlink" title="泛型的使用"></a>泛型的使用</h2><p>泛型的三种使用方法：泛型类，泛型接口，泛型方法</p>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><p>在类的定义中使用类，然后就可让类中的操作都能使用泛型。最典型的就是Java各种容器类——List，Set，Map</p>
+<p>一个泛型类例子：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Fanxing;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>{       <span class="comment">// 此处可以随便写标识符号，T是type的简称</span></span><br><span class="line">    <span class="keyword">private</span> K key;</span><br><span class="line">    <span class="keyword">private</span> V value;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(K akey,V avalue)</span></span>{</span><br><span class="line">        <span class="keyword">this</span>.key = akey;</span><br><span class="line">        <span class="keyword">this</span>.value = avalue;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> V <span class="title">getValue</span><span class="params">()</span></span>{<span class="comment">//作为方法返回类型</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">};</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>{</span><br><span class="line">        Point&lt;Integer,String&gt; p = <span class="keyword">new</span> Point&lt;Integer,String&gt;();</span><br><span class="line">        p.set(<span class="number">1</span>,<span class="string">"one"</span>);</span><br><span class="line">        System.out.println(p.getValue());</span><br><span class="line">        fun(p);</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(Point&lt;?,?&gt; temp)</span></span>{<span class="comment">//通配符 ？</span></span><br><span class="line">        System.out.println(temp.getValue());</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>声明方法是在类名后面用尖括号把会用到的标识符号列出来。</p>
+<p>然后在类中就可以直接使用这些标识符，作为变量类型或者方法的返回类型都可以。</p>
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h3><p>泛型接口与泛型类的定义及使用基本相同。泛型接口常被用在各种类的生产器中，可以看一个例子：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Fanxing;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Info</span>&lt;<span class="title">T</span>&gt;</span>{        <span class="comment">// 在接口上定义泛型</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getVar</span><span class="params">()</span> </span>; <span class="comment">// 定义抽象方法，抽象方法的返回值就是泛型类型</span></span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InfoImpl</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Info</span>&lt;<span class="title">T</span>&gt;</span>{   <span class="comment">// 定义泛型接口的子类</span></span><br><span class="line">    <span class="keyword">private</span> T <span class="keyword">var</span> ;             <span class="comment">// 定义属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InfoImpl</span><span class="params">(T avar)</span></span>{     <span class="comment">// 通过构造方法设置属性内容</span></span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">var</span> = avar;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getVar</span><span class="params">()</span></span>{<span class="comment">//实现接口</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.<span class="keyword">var</span> ;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String arsg[])</span></span>{</span><br><span class="line">        Info&lt;String&gt; i =<span class="keyword">new</span> InfoImpl&lt;String&gt;(<span class="string">"Codefriday"</span>) ;</span><br><span class="line">        System.out.println(<span class="string">"作者："</span> + i.getVar()) ;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><p>第一个泛型类例子中</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">getValue</span><span class="params">()</span><span class="comment">//作为方法返回类型</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>并不是一个泛型方法，这只是类中一个普通成员方法，下面引用泛型方法：</p>
+<pre><code>public class Test1 {
+    public &lt;T&gt; void testMethod(T t){
+
+    }
+}</code></pre><p>类型参数位置在返回类型之前</p>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>除了用 <code>&lt;T&gt;</code>表示泛型外，还有 <code>&lt;?&gt;</code>这种形式。<strong>？</strong> 被称为通配符。</p>
+<p>通配符有 3 种形式。</p>
+<ol>
+<li><code>&lt;?&gt;</code>被称作无限定的通配符。</li>
+<li><code>&lt;? extends T&gt;</code>被称作有上限的通配符。</li>
+<li><code>&lt;? super T&gt;</code>被称作有下限的通配符。</li>
+</ol>
+<h2 id="类型擦除"><a href="#类型擦除" class="headerlink" title="类型擦除"></a>类型擦除</h2><p><strong>泛型信息只存在于代码编译阶段，在进入 JVM 之前，与泛型相关的信息会被擦除掉，专业术语叫做类型擦除</strong>。</p>
+<h3 id="带来的局限性"><a href="#带来的局限性" class="headerlink" title="带来的局限性"></a>带来的局限性</h3><p>类型擦除，是泛型能够与之前的 java 版本代码兼容共存的原因。但也因为类型擦除，它会抹掉很多继承相关的特性，这是它带来的局限性。</p>
+<h2 id="泛型中值得注意的地方"><a href="#泛型中值得注意的地方" class="headerlink" title="泛型中值得注意的地方"></a>泛型中值得注意的地方</h2><h3 id="不接受-8-种基本数据类型"><a href="#不接受-8-种基本数据类型" class="headerlink" title="不接受 8 种基本数据类型"></a>不接受 8 种基本数据类型</h3><p>原因：只接受对象！！！</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int-&gt;integer</span><br><span class="line"></span><br><span class="line">boolean-&gt;Boolean</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>泛型其实就是方便编程以及减小代码冗余度，但是只是编译阶段起作用。</p>
+<p>抽离了数据类型与代码逻辑，本意是提高程序代码的简洁性和可读性，并提供可能的编译时类型转换安全检测功能。</p>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="反射" href="/2020/12/28/%E5%8F%8D%E5%B0%84/">
+            ← 反射
+        </a>
+        
+        <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="Java数据结构" href="/2020/12/27/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+            Java数据结构 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"></path></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"></path></svg>
+            <svg class="toc-close hide" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"></path><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"></path></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"></path></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例"><span class="toc-text">举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特性"><span class="toc-text">特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型的使用"><span class="toc-text">泛型的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#泛型类"><span class="toc-text">泛型类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泛型接口"><span class="toc-text">泛型接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泛型方法"><span class="toc-text">泛型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符"><span class="toc-text">通配符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型擦除"><span class="toc-text">类型擦除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带来的局限性"><span class="toc-text">带来的局限性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型中值得注意的地方"><span class="toc-text">泛型中值得注意的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不接受-8-种基本数据类型"><span class="toc-text">不接受 8 种基本数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">— CodeFriday —</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2021/01/17/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/01/17/IO/">IO</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/01/04/GUI%E5%AE%9E%E6%88%98-%E8%B4%AA%E5%90%83%E8%9B%87%E5%B0%8F%E6%B8%B8%E6%88%8F/">GUI实战-贪吃蛇小游戏</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">Categories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li></ul>
+        </ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">Tag Cloud</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 19px;">第一阶段感悟</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="CodeFriday">CodeFriday</a>
+			© 2021
+		</section>
+		<nav class="site-footer-nav">
+			
+        </nav>
+		<span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+	<p align="center">
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("12/25/2020 00:00:00");//此处建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+	setInterval("createtime()",250);
+	</script>
+	</p>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="CodeFriday">
+			
+                <img src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday icon">
+			
+            <span>CodeFriday</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">泛型</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: false,
+        appId: 'u5Keac77Cgj26AHTOFXr2N32-gzGzoHsz',
+        appKey: 'eokpYg7BxMlX9Cs31zsM56A9',
+        placeholder: '欢迎留言！',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+
+
+</body></html>
