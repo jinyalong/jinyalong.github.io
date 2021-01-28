@@ -286,6 +286,12 @@
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.chat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TalkTeacher</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TalkSend(<span class="number">5555</span>,<span class="string">"127.0.0.1"</span>,<span class="number">9999</span>)).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TalkReceive(<span class="number">6666</span>,<span class="string">"student"</span>)).start();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.codefriday.chat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TalkStudent</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TalkSend(<span class="number">7777</span>,<span class="string">"127.0.0.1"</span>,<span class="number">6666</span>)).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TalkReceive(<span class="number">9999</span>,<span class="string">"teacher"</span>)).start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>cmd运行测试如下：<br><img alt="" class="post-img b-lazy" href="/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/image-20210127213812966.png" data-src="/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/image-20210127213812966.png"></p>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>统一资源定位符</p>
+<p>协议+IP+项目+具体资源</p>
+<p>下载网络资源实例：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.Demo04;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.HttpURLConnection;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestURL</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        URL url = <span class="keyword">new</span> URL(<span class="string">"https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg"</span>);</span><br><span class="line">        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();</span><br><span class="line">        InputStream is = urlConnection.getInputStream();</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"test.jpg"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>((len=is.read(buffer))!=-<span class="number">1</span>){</span><br><span class="line">            fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">        }</span><br><span class="line">        fos.close();</span><br><span class="line">        is.close();</span><br><span class="line">        urlConnection.disconnect();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img alt="image-20210128104054784" class="post-img b-lazy" href="/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/image-20210128104054784.png" data-src="/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/image-20210128104054784.png"></p>
 
                 </div>
             </section>
@@ -295,6 +301,10 @@
     
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="多线程编程基础" href="/2021/01/27/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+            ← 多线程编程基础
+        </a>
         
         <span class="prev-next-post">•</span>
         
@@ -325,7 +335,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络通信的要素"><span class="toc-text">网络通信的要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP"><span class="toc-text">IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口"><span class="toc-text">端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通信协议"><span class="toc-text">通信协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现聊天"><span class="toc-text">实现聊天</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程聊天"><span class="toc-text">多线程聊天</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络通信的要素"><span class="toc-text">网络通信的要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP"><span class="toc-text">IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口"><span class="toc-text">端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通信协议"><span class="toc-text">通信协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现聊天"><span class="toc-text">实现聊天</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程聊天"><span class="toc-text">多线程聊天</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL"><span class="toc-text">URL</span></a></li></ol>
     </div>
 </div>
 
@@ -357,6 +367,12 @@
       
       
       <li>
+        <a href="/2021/01/27/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/">多线程编程基础</a>
+      </li>
+      
+      
+      
+      <li>
         <a href="/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a>
       </li>
       
@@ -367,10 +383,6 @@
       </li>
       
       
-      
-      <li>
-        <a href="/2021/01/04/GUI%E5%AE%9E%E6%88%98-%E8%B4%AA%E5%90%83%E8%9B%87%E5%B0%8F%E6%B8%B8%E6%88%8F/">GUI实战-贪吃蛇小游戏</a>
-      </li>
       
       
       
@@ -414,7 +426,7 @@
     </header>
     <div class="read-next-card-content">
         <ul>
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li></ul>
         </ul>
     </div>
 </article>
