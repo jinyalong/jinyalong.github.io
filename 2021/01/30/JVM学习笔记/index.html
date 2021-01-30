@@ -1,0 +1,617 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+	
+	
+	
+<link rel="stylesheet" href="/css/allinone.min.css">
+
+
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>JVM学习笔记 | CodeFriday</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="codefriday">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	<link rel="apple-touch-icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="CodeFriday">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="JVM学习笔记 | CodeFriday">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="http://yoursite.com/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+	
+	<meta property="article:published_time" content="2021-01-30T10:01:00+08:00"> 
+	<meta property="article:author" content="codefriday">
+	<meta property="article:published_first" content="CodeFriday, /2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+	
+<link rel="alternate" href="/atom.xml" title="CodeFriday" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/jinyalong" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"></path></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://blog.csdn.net/HNUCSEE" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 1024"><path d="M1141.351404 39.055942l-28.91333 218.474629c-126.144728-19.927251-251.601043-38.376709-377.75495-27.674187-115.460564 9.802996-227.405635 32.180995-309.124802 122.987208-150.018878 166.696821-68.391499 396.461416 158.252293 437.463272 141.115408 25.52634 283.919721 11.785624 425.448176-8.123269-5.452228 112.440727-5.764308 95.303843-10.674985 205.229569-1.073924 24.057726 4.277337 14.612705-161.648461 31.914809-176.004159 9.004437-351.879815 11.189-520.550085-52.888447C156.545029 905.721534 30.675666 809.16019 5.176863 630.815428c-26.251468-183.595056 48.803865-331.796524 192.516883-446.128091C413.36883 13.098197 790.802521-47.271 1141.351404 39.055942z" fill="#ffffff"></path></svg>
+    </a>
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-01-30T02:57:37.000Z" itemprop="datePublished">
+                    2021-01-30
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>&nbsp;&nbsp;
+                
+                
+            </section>
+            <h1 class="post-full-title">JVM学习笔记</h1>
+        </header>
+        <article class="post-full no-image">
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <h2 id="JVM的位置"><a href="#JVM的位置" class="headerlink" title="JVM的位置"></a>JVM的位置</h2><p><img alt="img" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/896914-20191214212820607-179669159.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/896914-20191214212820607-179669159.png"></p>
+<p><code>Java</code>之所以能跨平台，是由于在程序和操作系统之间还有一层Java虚拟机存在，就是所谓的<code>JVM</code>，区别于<code>C/C++</code>，由于操作系统基本也是<code>C/C++</code>编写的，操作系统本身也是一个应用程序，所以<code>C/C++</code>编写的程序当然更亲和硬件，当然<code>C/C++</code>语言粒度较细，而<code>Java</code>有自己成熟的虚拟机系统，所以能火起来！</p>
+<p>一个<code>C/C++</code>程序编译成<code>exe</code>文件之后，虽然可以直接复制到其他电脑无需安装其他环境，双击运行即可，但是跨平台时，首先需要考虑操作系统提供的<code>API</code>是否一致，比如线程相关<code>API</code>，其次还要考虑硬件体系，也就是CPU的指令集，是<code>ARM</code>还是<code>X86</code>等等。</p>
+<p>但一个JAVA程序，首先需要设备上安装了<code>JRE</code>（运行时环境），然后就可以跑起来了！</p>
+<h2 id="JVM体系结构"><a href="#JVM体系结构" class="headerlink" title="JVM体系结构"></a>JVM体系结构</h2><p><img alt="img" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/1.png"></p>
+<h2 id="类加载器-amp-双亲委派机制"><a href="#类加载器-amp-双亲委派机制" class="headerlink" title="类加载器&amp;双亲委派机制"></a>类加载器&amp;双亲委派机制</h2><h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p><img alt="image-20210130110821276" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130110821276.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130110821276.png"></p>
+<ul>
+<li>引导类加载器：<code>C++</code>编写，是<code>JVM</code>自带的类加载器，负责<strong>Java平台核心库（JRE-lib-rt.jar）</strong>,用来装载核心类库。该加载器无法直接获取。</li>
+<li>扩展类加载器：负责<code>jre/lib/ext</code>目录下的jar包或<code>- D java.ext.dirs</code>指定目录下的jar包装入工作库。</li>
+<li>系统类加载器：负责<code>java -classpath</code>或<code>-D java.class.path</code>所指定目录下的类与jar包装入工作，是最常用的加载器。</li>
+</ul>
+<h3 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><p>所谓双亲，其实就是指引导类加载器和扩展类加载器是系统类加载器的父类加载器。为了防止恶意代干扰运行时环境，比如java.lang包下的String类，如果你自己写一个同包同名的类，自己写的是没用的。</p>
+<p><strong>当加载系统收到一个类加载请求时：</strong></p>
+<p><img alt="image-20210130110731285" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130110731285.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130110731285.png"></p>
+<p><strong>测试写一个同包同名类时：</strong></p>
+<p><strong>首先必须知道的一点：J</strong>AVA虚拟机启动时先加载包含main方法的类，因此我先写一个String类，并给一个静态代码块（如果这个类被加载，静态代码块中的输出语句就会输出东西）。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> {</span><br><span class="line">        System.out.println(<span class="string">"黑入成功！"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"Hello world!"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出：</p>
+<p><img alt="image-20210130111721441" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130111721441.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130111721441.png"></p>
+<p>为什么报错找不到主函数？？？</p>
+<p>我自己的理解：首先主函数在<code>String</code>类中所以先加载这个类，然后在<code>rt-jar</code>包中也有这个类，实际往上委派加载器加载时，<code>BootstrapClassLoader</code>在<code>rt-jar</code>包中成功加载，但是其中确实没有主函数，因此报错！</p>
+<h2 id="Native，方法区"><a href="#Native，方法区" class="headerlink" title="Native，方法区"></a>Native，方法区</h2><p><code>native</code>关键字：凡是带了<code>native</code>关键字的方法，说明<code>java</code>作用范围达不到了，他会调用底层C语言库。会进入本地方法栈，调用本地方法接口（<code>JNI</code>）</p>
+<p><code>JNI</code>作用：扩展<code>Java</code>使用，融合不同编程语言为<code>Java</code>使用！最初：<code>C/C++</code></p>
+<p>它在内存区域中专门开辟了一个本地方法栈（<code>Native Method Stack</code>）,登记<code>native</code>方法</p>
+<p>在最终执行时，通过<code>JNI</code>加载本地方法库的方法。</p>
+<h2 id="PC寄存器"><a href="#PC寄存器" class="headerlink" title="PC寄存器"></a>PC寄存器</h2><p>程序计数器：Program Counter Register</p>
+<p>每个线程私有一个程序计数器，实际就是一个指针，指向方法区中的方法字节码。</p>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>Method Area方法区</p>
+<p>被所有线程共享，静态变量，常量，类信息（构造方法，接口定于）、运行时的常量池存在方法区中，但是实例变量存在堆内存中，和方法去无关。</p>
+<p>存：static，final，Class，常量池</p>
+<h2 id="栈式计算机"><a href="#栈式计算机" class="headerlink" title="栈式计算机"></a>栈式计算机</h2><p>JVM本质是栈式计算机</p>
+<p>操作数压栈，运算指令从栈顶取数据运算。</p>
+<p><img alt="image-20210130153145040" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130153145040.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130153145040.png"></p>
+<h2 id="三种JVM"><a href="#三种JVM" class="headerlink" title="三种JVM"></a>三种JVM</h2><ul>
+<li>Sun公司 <code>Java HotSpot(TM) Client VM (build 25.271-b09, mixed mode, sharing)</code></li>
+<li>BEA <code>JRockit</code></li>
+<li>IBM <code>J9VM</code></li>
+</ul>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>Heap，一个JVM只有一个堆内存，堆内存大小是可以调节的。</p>
+<p>类加载器读取类文件后，一般会把类，方法，常量，变量放在堆中，以及保存我们所引用类型的真实对象。</p>
+<p>堆内存分三个区域：</p>
+<ul>
+<li>新生区（伊甸园区-Eden Space）</li>
+<li>养老区</li>
+<li>永久区</li>
+</ul>
+<p><img alt="image-20210130133228954" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130133228954.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130133228954.png"></p>
+<p>GC垃圾回收主要在伊甸园区和养老区。</p>
+<p>假设内存满了，OOM错误，堆内存不够！<code>java.lang.OutOfMemoryError:java heap space</code></p>
+<p>在JDK1.8之后，永久存储区改名（元空间）。</p>
+<h3 id="新生区"><a href="#新生区" class="headerlink" title="新生区"></a>新生区</h3><ul>
+<li>类：诞生和应用甚至死亡。</li>
+<li>伊甸园区：所有对象都是在伊甸园区new出来的</li>
+<li>幸存者区（0，1）</li>
+</ul>
+<p>伊甸园区满了触发轻GC</p>
+<p>养老区新生区都满触发Full GC</p>
+<p><img alt="image-20210130154505879" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130154505879.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130154505879.png"></p>
+<p><strong>HotSpot虚拟机默认Eden和Survivor的大小比例是8:1</strong></p>
+<h3 id="永久区"><a href="#永久区" class="headerlink" title="永久区"></a>永久区</h3><p>这个区域常驻内存，用来存放JDK自身携带的Class对象，interface元数据，存储的是java运行时一些环境或类信息，这个区域不存在垃圾回收！关闭虚拟机就会释放这个区域的内存。</p>
+<p>一个启动类，加载了大量第三方jar包，Tomcat部署太多应用，大量动态生成反射类，可能会导致OOM。</p>
+<ul>
+<li>JDK1.6之前：永久代，常量池在方法区中</li>
+<li>JDK1.7：提出去永久代，常量池在堆中</li>
+<li>JDK1.8之后：无永久代，常量池在元空间</li>
+</ul>
+<p><img alt="image-20210130142126569" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130142126569.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130142126569.png"></p>
+<p>使用JVM参数：</p>
+<p><code>-Xms1024m -Xmx1024m -XX:+PrintGCDetails</code></p>
+<p>输出GC的一些详细运行信息</p>
+<p>运行一个测试数据，运行结果：</p>
+<p><img alt="image-20210130142230049" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130142230049.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130142230049.png"></p>
+<p><strong>元空间逻辑上存在，物理上不存在！</strong>证明如下：</p>
+<p><img alt="image-20210130142601948" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130142601948.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130142601948.png"></p>
+<h3 id="测试OOM"><a href="#测试OOM" class="headerlink" title="测试OOM"></a>测试OOM</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        String str = <span class="string">"test out of memory"</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>){</span><br><span class="line">            str += str;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出：</p>
+<p><img alt="image-20210130143300781" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130143300781.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130143300781.png"></p>
+<h2 id="使用内存分析工具分析OOM"><a href="#使用内存分析工具分析OOM" class="headerlink" title="使用内存分析工具分析OOM"></a>使用内存分析工具分析OOM</h2><p><code>Eclipse</code>中有一个<code>MTA(Memory Analyzer)</code></p>
+<p>在此使用<code>Jprofiler</code></p>
+<ul>
+<li><p>首先在<code>IDEA-File-settings-plugins</code>中搜索<code>Jprofiler</code>插件安装</p>
+<p><img alt="image-20210130145857762" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130145857762.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130145857762.png"></p>
+</li>
+<li><p>在<a href="https://www.ej-technologies.com" target="_blank" rel="noopener">https://www.ej-technologies.com</a></p>
+<p>官网下载<code>Jprofiler</code>客户端并安装</p>
+</li>
+<li><p>在IDEA中点击Jprofiler图标并关联到客户端安装目录下的Jprofiler.exe程序。</p>
+</li>
+</ul>
+<p><code>-Xms</code>：设置初始化内存分配大小，默认1/64</p>
+<p><code>-Xmx</code>：设置最大分配内存，默认1/4</p>
+<p><code>-XX:+PrintGCDetails</code>：打印GC信息</p>
+<p><code>-XX:HeapDumpOnOutOfMemoryError</code>：对应错误生成Dump文件</p>
+<p><strong>编写会导致OOM错误的程序：</strong></p>
+<p>使用<code>JVM</code>参数修改一个较小的运行内存，并且生成dump文件</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>{</span><br><span class="line">    <span class="keyword">byte</span>[] array = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        ArrayList&lt;Demo02&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;Demo02&gt;();</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>){</span><br><span class="line">            arrayList.add(<span class="keyword">new</span> Demo02());</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>调参生成dump文件，内存快照</strong></p>
+<p><code>-Xms1m -Xmx8m -XX:+HeapDumpOnOutOfMemory</code></p>
+<p><img alt="image-20210130183801909" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130183801909.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130183801909.png"></p>
+<p>打开生成的hprof后缀的文件可定位错误代码位置</p>
+<p><img alt="image-20210130183917444" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130183917444.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130183917444.png"></p>
+<p>还可以查看占用较大内存的对象，以及对象的一些操作：</p>
+<p><img alt="image-20210130184156775" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130184156775.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130184156775.png"></p>
+<h2 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h2><p><img alt="image-20210130152143238" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130152143238.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210130152143238.png"></p>
+<p>JVM在进行垃圾回收时，大部分时间回收新生代。 </p>
+<ul>
+<li>新生代<ul>
+<li>Eden</li>
+<li>From Survivor</li>
+<li>To Survivor</li>
+</ul>
+</li>
+<li>老年区</li>
+</ul>
+<p><strong>GC分类</strong></p>
+<ul>
+<li>轻GC（普通GC）针对Eden以及少部分Survivor</li>
+<li>重GC（全局GC）</li>
+</ul>
+<h3 id="GC算法评价指标"><a href="#GC算法评价指标" class="headerlink" title="GC算法评价指标"></a>GC算法评价指标</h3><p>Java万物皆对象，实际回收的垃圾就是所谓的对象，对象都是new出来的，在C/C++中使用new是分配内存用的，但是new完必须delete，否则会造成内存泄漏。</p>
+<p><strong>1、吞吐量</strong>：即单位时间内的处理能力。</p>
+<p><strong>2、最大暂停时间</strong>：因执行GC而暂停执行程序所需的时间。</p>
+<p><strong>3、堆的使用效率</strong>：鱼与熊掌不可兼得，堆使用效率和吞吐量、最大暂停时间是不可能同时满足的。即可用的堆越大，GC运行越快；相反，想要利用有限的堆，GC花费的时间就越长。</p>
+<p><strong>4、访问的局部性</strong>：在存储器的层级构造中，我们知道越是高速存取的存储器容量会越小（具体可以参看我写的存储器那篇文章）。由于程序的局部性原理，将经常用到的数据放在堆中较近的位置，可以提高程序的运行效率。</p>
+<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p><strong>引用计数算法(reference-counting) :</strong>每个对象有一个引用计数器，当对象被引用一次则计数器加1，当对象引用失效一次则计数器减1，对于计数器为0的对象意味着是垃圾对象，可以被GC回收。</p>
+<p>引用计数算法的问题：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GcTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        TestObj Obj1 = <span class="keyword">new</span> TestObj();   <span class="comment">//新生成一个对象，Obj1引用计数器=1</span></span><br><span class="line">        TestObj Obj2 = <span class="keyword">new</span> TestObj();   <span class="comment">//新生成一个对象，Obj2引用计数器=1</span></span><br><span class="line"></span><br><span class="line">        Obj1.reference = Obj2;      <span class="comment">//Obj2被引用，Obj2引用计数器+1 --&gt; 2</span></span><br><span class="line">        Obj2.reference = Obj1;      <span class="comment">//Obj1被引用，Obj1引用计数器+1 --&gt; 2</span></span><br><span class="line"></span><br><span class="line">        Obj1 = <span class="keyword">null</span>;    <span class="comment">//Obj1引用-1 --&gt;1</span></span><br><span class="line">        Obj2 = <span class="keyword">null</span>;    <span class="comment">//Obj1引用-1 --&gt;1</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestObj</span></span>{</span><br><span class="line">    <span class="keyword">public</span> TestObj reference = <span class="keyword">null</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>实际此时两个对象都有引用，即相互引用，但是外部已经不被引用，而由于计数器不为0，不会被GC回收，此时就有内存泄漏！</p>
+<h3 id="根搜索算法"><a href="#根搜索算法" class="headerlink" title="根搜索算法"></a>根搜索算法</h3><p><strong>可达性算法(GC Roots Tracing):</strong>从GC Roots作为起点开始搜索，那么整个连通图中的对象便都是活对象，对于GC Roots无法到达的对象便成了垃圾回收的对象，随时可被GC回收。</p>
+<p><del>刚学完编译原理，代码优化阶段中有一个到达定义分析，有着差不多思想！</del></p>
+<p><strong>根（GC Roots）：</strong></p>
+<p>说到GC roots（GC根），在JAVA语言中，可以当做GC roots的对象有以下几种：</p>
+<p><strong>1、栈（栈帧中的本地变量表）中引用的对象。</strong></p>
+<p><strong>2、方法区中的静态成员。</strong></p>
+<p><strong>3、方法区中的常量引用的对象（全局变量）</strong></p>
+<p><strong>4、本地方法栈中JNI（一般说的Native方法）引用的对象。</strong></p>
+<p>在根搜索算法的基础上，现代虚拟机的实现当中，<strong>垃圾搜集的算法</strong>主要有三种，分别是<strong>标记-清除算法、复制算法、标记-整理</strong>算法。这三种算法都扩充了根搜索算法。</p>
+<h3 id="标记-清除算法："><a href="#标记-清除算法：" class="headerlink" title="标记-清除算法："></a><strong>标记-清除算法：</strong></h3><p><strong>1、标记清除算法的概念：</strong></p>
+<p>标记-清除算法是现代垃圾回收算法的思想基础。标记-清除算法将垃圾回收分为两个阶段：标记阶段和清除阶段。一种可行的实现是，在标记阶段，<strong>首先通过根节点，标记所有从根节点开始的可达对象</strong>。因此，未被标记的对象就是未被引用的垃圾对象；然后，在清除阶段，清除所有未被标记的对象。</p>
+<p><img alt="img" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201002487061086.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201002487061086.png"></p>
+<p><strong>2、标记-清除算法详解：</strong></p>
+<p>它的做法是当堆中的有效内存空间（available memory）被耗尽的时候，就会停止整个程序（也被成为stop the world），然后进行两项工作，第一项则是标记，第二项则是清除。</p>
+<ul>
+<li>标记：标记的过程其实就是，遍历所有的GC Roots，然后将所有GC Roots可达的对象标记为存活的对象。</li>
+<li>清除：清除的过程将遍历堆中所有的对象，将没有标记的对象全部清除掉。</li>
+</ul>
+<p>也就是说，<strong>就是当程序运行期间，若可以使用的内存被耗尽的时候，GC线程就会被触发并将程序暂停，随后将依旧存活的对象标记一遍，最终再将堆中所有没被标记的对象全部清除掉，接下来便让程序恢复运行</strong>。</p>
+<p><strong>3、标记-清除算法的缺点：</strong></p>
+<p>（1）首先，<strong>它的缺点就是效率比较低（递归与全堆对象遍历）</strong>，导致stop the world的时间比较长，尤其对于交互式的应用程序来说简直是无法接受。试想一下，如果你玩一个网站，这个网站一个小时就挂五分钟，你还玩吗？</p>
+<p>（2）第二点主要的缺点，则是<strong>这种方式清理出来的空闲内存是不连续的</strong>，这点不难理解，我们的死亡对象都是随即的出现在内存的各个角落的，现在把它们清除之后，内存的布局自然会乱七八糟。而为了应付这一点，JVM就不得不维持一个内存的空闲列表，这又是一种开销。而且在分配数组对象的时候，寻找连续的内存空间会不太好找。</p>
+<h3 id="复制算法：（新生代的GC）"><a href="#复制算法：（新生代的GC）" class="headerlink" title="复制算法：（新生代的GC）"></a>复制算法：（新生代的GC）</h3><p><strong>复制算法的概念：</strong></p>
+<p>将原有的内存空间分为两块，每次只使用其中一块，在垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中，之后，清除正在使用的内存块中的所有对象，交换两个内存的角色，完成垃圾回收。</p>
+<ul>
+<li>与标记-清除算法相比，复制算法是一种相对高效的回收方法</li>
+<li>不适用于存活对象较多的场合，如老年代（复制算法<strong>适合做新生代的GC</strong>）</li>
+</ul>
+<p><img alt="ff1e1846-e49c-4663-aee1-7c63628f567c" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201002560357091.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201002560357091.png"></p>
+<ul>
+<li><strong>复制算法的最大的问题是：空间的浪费</strong></li>
+</ul>
+<p>复制算法使得每次都只对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。</p>
+<p>现在的商业虚拟机都采用这种收集算法来回收新生代，新生代中的对象98%都是“朝生夕死”的，所以并不需要按照1:1的比例来划分内存空间，而是<strong>将内存分为一块比较大的Eden空间和两块较小的Survivor空间</strong>，每次使用Eden和其中一块Survivor。当回收时，将Eden和Survivor中还存活着的对象一次性地复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8:1，也就是说，每次新生代中可用内存空间为整个新生代容量的90%（80%+10%），只有10%的空间会被浪费。</p>
+<p><strong>因此幸存区分From和To两个区域，谁空的谁就是To区域。</strong></p>
+<p>98%的对象可回收只是一般场景下的数据，我们没有办法保证每次回收都只有不多于10%的对象存活<strong>，当Survivor空间不够用时，需要依赖于老年代进行分配担保，所以大对象直接进入老年代</strong>。整个过程如下图所示：</p>
+<p><img alt="7e1f6ed2-e0c4-45e4-b7db-b59c28e1ee9c" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201002573639064.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201002573639064.png"></p>
+<p>当复制超过15次时（默认值），对象进入老年代。</p>
+<p>对象晋升老年代的年龄阈值，可以通过参数<code>-XX:MaxTenuringThreshold</code>来设置。</p>
+<h3 id="标记-整理算法：（老年代的GC）"><a href="#标记-整理算法：（老年代的GC）" class="headerlink" title="标记-整理算法：（老年代的GC）"></a>标记-整理算法：（老年代的GC）</h3><p><strong>概念：</strong></p>
+<p>标记-压缩算法适合用于存活对象较多的场合，如老年代。它在标记-清除算法的基础上做了一些优化。和标记-清除算法一样，标记-压缩算法也首先需要从根节点开始，对所有可达对象做一次标记；但之后，它并不简单的清理未标记的对象，而是<strong>将所有的存活对象压缩到内存的一端；</strong>之后，清理边界外所有的空间。</p>
+<p><img alt="cc79889a-0856-4018-92c3-c51108c9caea" class="post-img b-lazy" href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201003005357866.png" data-src="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/201003005357866.png"></p>
+<ul>
+<li>*<em>标记：它的第一个阶段与标记/清除算法是一模一样的，均是遍历GC Roots，然后将存活的对象标记。<br>*</em></li>
+<li><strong>整理：移动所有存活的对象，且按照内存地址次序依次排列，然后将末端内存地址以后的内存全部回收。因此，第二阶段才称为整理阶段。</strong></li>
+</ul>
+<h3 id="GC算法总结"><a href="#GC算法总结" class="headerlink" title="GC算法总结"></a>GC算法总结</h3><p>在GC线程开启时，或者说GC过程开始时，它们都要暂停应用程序（stop the world）。</p>
+<p>（1）<strong>效率：</strong>复制算法&gt;标记/整理算法&gt;标记/清除算法（此处的效率只是简单的对比时间复杂度，实际情况不一定如此）。</p>
+<p>（2）<strong>内存整齐度</strong>：复制算法=标记/整理算法&gt;标记/清除算法。</p>
+<p>（3）<strong>内存利用率：</strong>标记/整理算法=标记/清除算法&gt;复制算法。</p>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="注解和反射" href="/2021/01/29/%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/">
+            注解和反射 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"></path></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"></path></svg>
+            <svg class="toc-close hide" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"></path><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"></path></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"></path></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM的位置"><span class="toc-text">JVM的位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM体系结构"><span class="toc-text">JVM体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器-amp-双亲委派机制"><span class="toc-text">类加载器&amp;双亲委派机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载器"><span class="toc-text">类加载器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双亲委派机制"><span class="toc-text">双亲委派机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Native，方法区"><span class="toc-text">Native，方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PC寄存器"><span class="toc-text">PC寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法区"><span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈式计算机"><span class="toc-text">栈式计算机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三种JVM"><span class="toc-text">三种JVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆"><span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新生区"><span class="toc-text">新生区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#永久区"><span class="toc-text">永久区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试OOM"><span class="toc-text">测试OOM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用内存分析工具分析OOM"><span class="toc-text">使用内存分析工具分析OOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC"><span class="toc-text">GC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GC算法评价指标"><span class="toc-text">GC算法评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用计数法"><span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根搜索算法"><span class="toc-text">根搜索算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-清除算法："><span class="toc-text">标记-清除算法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制算法：（新生代的GC）"><span class="toc-text">复制算法：（新生代的GC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-整理算法：（老年代的GC）"><span class="toc-text">标记-整理算法：（老年代的GC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GC算法总结"><span class="toc-text">GC算法总结</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">— CodeFriday —</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JVM学习笔记</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/01/29/%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/">注解和反射</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/01/28/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/">多线程编程基础</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">Categories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li></ul>
+        </ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">Tag Cloud</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 19px;">第一阶段感悟</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="CodeFriday">CodeFriday</a>
+			© 2021
+		</section>
+		<nav class="site-footer-nav">
+			
+        </nav>
+		<span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+	<p align="center">
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("12/25/2020 00:00:00");//此处建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+	setInterval("createtime()",250);
+	</script>
+	</p>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="CodeFriday">
+			
+                <img src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday icon">
+			
+            <span>CodeFriday</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">JVM学习笔记</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: false,
+        appId: 'u5Keac77Cgj26AHTOFXr2N32-gzGzoHsz',
+        appKey: 'eokpYg7BxMlX9Cs31zsM56A9',
+        placeholder: '欢迎留言！',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+
+
+</body></html>
