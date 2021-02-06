@@ -138,7 +138,7 @@
 <li>重写run()方法，编写线程执行体</li>
 <li>创建线程对象，调用start()方法启动线程</li>
 </ul>
-<p>多线程现在网路图片：</p>
+<p>多线程下载网路图片：</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.Demo02;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.io.FileUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多线程下载网图</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread02</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>{</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestThread02</span><span class="params">(String url,String name)</span></span>{</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">new</span> WebDownloader().downloader(url,name);</span><br><span class="line">        System.out.println(<span class="string">"下载了"</span>+name);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        TestThread02 t1 = <span class="keyword">new</span> TestThread02(<span class="string">"https://www.codefriday.cn/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/1.png"</span>,<span class="string">"1.png"</span>);</span><br><span class="line">        TestThread02 t2 = <span class="keyword">new</span> TestThread02(<span class="string">"https://www.codefriday.cn/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/d8f9d72a6059252d20d93b0a6645fb3e59b5b9d2.jpeg"</span>,<span class="string">"2.jpeg"</span>);</span><br><span class="line">        TestThread02 t3 = <span class="keyword">new</span> TestThread02(<span class="string">"https://www.codefriday.cn/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/861fa058f2da35f8efa70b29bf7c45fd8689.gif"</span>,<span class="string">"3.gif"</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">        t3.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebDownloader</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downloader</span><span class="params">(String url,String name)</span></span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            FileUtils.copyURLToFile(<span class="keyword">new</span> URL(url),<span class="keyword">new</span> File(name));</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            System.out.println(<span class="string">"IO异常，下载器有问题！"</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>图片来自个人博客</p>
@@ -425,6 +425,12 @@
       
       
       <li>
+        <a href="/2021/02/04/CSS3/">CSS3</a>
+      </li>
+      
+      
+      
+      <li>
         <a href="/2021/02/03/HTML5/">HTML5</a>
       </li>
       
@@ -435,10 +441,6 @@
       </li>
       
       
-      
-      <li>
-        <a href="/2021/01/30/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JVM学习笔记</a>
-      </li>
       
       
       
@@ -501,7 +503,7 @@
 		<h3 class="read-next-card-header-title">Tag Cloud</h3>
 	</header>
 	<div class="read-next-card-content-ext">
-		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 19px;">第一阶段感悟</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" style="font-size: 14px;">第二阶段</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
+		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 20.67px;">第一阶段感悟</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" style="font-size: 17.33px;">第二阶段</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
 	</div>
 </article>
 
