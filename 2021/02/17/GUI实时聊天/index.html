@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+	
+	
+	
+<link rel="stylesheet" href="/css/allinone.min.css">
+
+
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>GUI实时聊天 | CodeFriday</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="codefriday">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	<link rel="apple-touch-icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="CodeFriday">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="GUI实时聊天 | CodeFriday">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="http://yoursite.com/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/">
+
+	
+	<meta property="article:published_time" content="2021-02-17T19:02:00+08:00"> 
+	<meta property="article:author" content="codefriday">
+	<meta property="article:published_first" content="CodeFriday, /2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/">
+	
+<link rel="alternate" href="/atom.xml" title="CodeFriday" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/jinyalong" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"></path></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://blog.csdn.net/HNUCSEE" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 1024"><path d="M1141.351404 39.055942l-28.91333 218.474629c-126.144728-19.927251-251.601043-38.376709-377.75495-27.674187-115.460564 9.802996-227.405635 32.180995-309.124802 122.987208-150.018878 166.696821-68.391499 396.461416 158.252293 437.463272 141.115408 25.52634 283.919721 11.785624 425.448176-8.123269-5.452228 112.440727-5.764308 95.303843-10.674985 205.229569-1.073924 24.057726 4.277337 14.612705-161.648461 31.914809-176.004159 9.004437-351.879815 11.189-520.550085-52.888447C156.545029 905.721534 30.675666 809.16019 5.176863 630.815428c-26.251468-183.595056 48.803865-331.796524 192.516883-446.128091C413.36883 13.098197 790.802521-47.271 1141.351404 39.055942z" fill="#ffffff"></path></svg>
+    </a>
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-02-17T11:04:58.000Z" itemprop="datePublished">
+                    2021-02-17
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a>&nbsp;&nbsp;
+                
+                
+            </section>
+            <h1 class="post-full-title">GUI实时聊天</h1>
+        </header>
+        <article class="post-full no-image">
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <h2 id="Github仓库地址"><a href="#Github仓库地址" class="headerlink" title="Github仓库地址"></a>Github仓库地址</h2><p><a href="https://github.com/jinyalong/Multithreading_UDP_GUI_Chat" target="_blank" rel="noopener">https://github.com/jinyalong/Multithreading_UDP_GUI_Chat</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>通信协议选择UDP，由于UDP不需要连接，因此只能单向发送所以还需要多线程，同时开启两个线程，一个线程负责接收消息，一个线程负责发送消息，然后还写了个窗口，黑框框运行程序太难看，因此用到了GUI。</p>
+</blockquote>
+<p>多线程聊天已经实现过，只需要稍微改动结合一下GUI使用即可。</p>
+<p>多线程聊天博客链接：<a href="https://www.codefriday.cn/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank" rel="noopener">https://www.codefriday.cn/2021/01/27/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</a></p>
+<h2 id="主启动类"><a href="#主启动类" class="headerlink" title="主启动类"></a>主启动类</h2><p>主要绘制一个窗体大小，设置了不可拉伸、可见性以及默认的关闭事件！</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.chat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Start</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"UDP多线程聊天程序"</span>);</span><br><span class="line">        <span class="comment">//frame.add(new JPanel());</span></span><br><span class="line">        frame.setLayout(<span class="keyword">null</span>);</span><br><span class="line">        Window.addComponents(frame);</span><br><span class="line">        frame.setBounds(<span class="number">10</span>,<span class="number">10</span>,<span class="number">520</span>,<span class="number">400</span>);<span class="comment">//窗口大小</span></span><br><span class="line">        frame.setResizable(<span class="keyword">false</span>);<span class="comment">//不可拉伸</span></span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);<span class="comment">//设置可见性</span></span><br><span class="line">        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<span class="comment">//默认关闭事件</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="程序窗口类"><a href="#程序窗口类" class="headerlink" title="程序窗口类"></a>程序窗口类</h2><p>使用绝对布局，手动计算每个组件的位置，窗体大小！</p>
+<p><img alt="image-20210217191348281" class="post-img b-lazy" href="/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/image-20210217191348281.png" data-src="/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/image-20210217191348281.png"></p>
+<blockquote>
+<p>逻辑</p>
+</blockquote>
+<p>只需为连接和发送消息两个按钮添加监听事件。</p>
+<p>连接按钮被按下时，设置IP，端口等信息不可编辑，未加验证！！！也就是输入不合法未检测<del>~</del></p>
+<p>然后获取输入框的信息并开启两个线程，一个发送信息，一个接收信息。</p>
+<blockquote>
+<p>发送信息</p>
+</blockquote>
+<p>设置一个全局变量表示是否需要发送信息，然后<code>TalkSend</code>线程中是一个<code>while</code>循环检测标志位，是否有发送信息的任务。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.chat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> TextField field = <span class="keyword">null</span>;<span class="comment">//对方IP</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> TextField field1 = <span class="keyword">null</span>;<span class="comment">//对方端口</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> TextField field2 = <span class="keyword">null</span>;<span class="comment">//自己端口，跑这个程序的端口</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> TextField field3 = <span class="keyword">null</span>;<span class="comment">//自己名字</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> JTextField field4 = <span class="keyword">null</span>;<span class="comment">//发送的消息内容</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> TextField field5 = <span class="keyword">null</span>;<span class="comment">//接收消息的端口</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> JButton btn1 = <span class="keyword">null</span>;<span class="comment">//连接按钮</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> JButton btn2 = <span class="keyword">null</span>;<span class="comment">//发送按钮</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> JTextArea textArea = <span class="keyword">null</span>;<span class="comment">//消息文本域</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;<span class="comment">//全局状态，表示是否点了发送信息，处理完之后标志位翻转</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">boolean</span> IsConn = <span class="keyword">false</span>;<span class="comment">//全局状态，是否连接中</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addComponents</span><span class="params">(JFrame frame)</span></span>{</span><br><span class="line">        <span class="comment">//ip地址</span></span><br><span class="line">        Label ToIP = <span class="keyword">new</span> Label(<span class="string">"To IP："</span>);</span><br><span class="line">        ToIP.setBounds(<span class="number">10</span>,<span class="number">10</span>,<span class="number">65</span>,<span class="number">25</span>);</span><br><span class="line">        ToIP.setBackground(Color.cyan);</span><br><span class="line">        field = <span class="keyword">new</span> TextField(<span class="string">"127.0.0.1"</span>,<span class="number">20</span>);</span><br><span class="line">        field.setBounds(<span class="number">80</span>,<span class="number">10</span>,<span class="number">80</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(ToIP);</span><br><span class="line">        frame.add(field);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对方端口</span></span><br><span class="line">        Label ToPort = <span class="keyword">new</span> Label(<span class="string">"To Port："</span>);</span><br><span class="line">        ToPort.setBounds(<span class="number">170</span>,<span class="number">10</span>,<span class="number">65</span>,<span class="number">25</span>);</span><br><span class="line">        ToPort.setBackground(Color.cyan);</span><br><span class="line">        field1 = <span class="keyword">new</span> TextField(<span class="string">"9999"</span>,<span class="number">20</span>);</span><br><span class="line">        field1.setBounds(<span class="number">245</span>,<span class="number">10</span>,<span class="number">80</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(ToPort);</span><br><span class="line">        frame.add(field1);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//自己端口</span></span><br><span class="line">        Label FromPort = <span class="keyword">new</span> Label(<span class="string">"From Port："</span>);</span><br><span class="line">        FromPort.setBounds(<span class="number">335</span>,<span class="number">10</span>,<span class="number">65</span>,<span class="number">25</span>);</span><br><span class="line">        FromPort.setBackground(Color.cyan);</span><br><span class="line">        field2 = <span class="keyword">new</span> TextField(<span class="string">"6666"</span>);</span><br><span class="line">        field2.setBounds(<span class="number">410</span>,<span class="number">10</span>,<span class="number">80</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(FromPort);</span><br><span class="line">        frame.add(field2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//连接名字</span></span><br><span class="line">        Label YourName = <span class="keyword">new</span> Label(<span class="string">"YourName："</span>);</span><br><span class="line">        YourName.setBounds(<span class="number">10</span>,<span class="number">45</span>,<span class="number">65</span>,<span class="number">25</span>);</span><br><span class="line">        YourName.setBackground(Color.cyan);</span><br><span class="line">        field3 = <span class="keyword">new</span> TextField(<span class="string">"Bob"</span>,<span class="number">20</span>);</span><br><span class="line">        field3.setBounds(<span class="number">80</span>,<span class="number">45</span>,<span class="number">80</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(YourName);</span><br><span class="line">        frame.add(field3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//自己的接收端口</span></span><br><span class="line">        Label YourPort = <span class="keyword">new</span> Label(<span class="string">"YourPort："</span>);</span><br><span class="line">        YourPort.setBounds(<span class="number">170</span>,<span class="number">45</span>,<span class="number">65</span>,<span class="number">25</span>);</span><br><span class="line">        YourPort.setBackground(Color.cyan);</span><br><span class="line">        field5 = <span class="keyword">new</span> TextField(<span class="string">"5555"</span>,<span class="number">20</span>);</span><br><span class="line">        field5.setBounds(<span class="number">245</span>,<span class="number">45</span>,<span class="number">80</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(YourPort);</span><br><span class="line">        frame.add(field5);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//连接按钮</span></span><br><span class="line">        btn1 = <span class="keyword">new</span> JButton(<span class="string">"连接"</span>);</span><br><span class="line">        btn1.setBounds(<span class="number">400</span>,<span class="number">45</span>,<span class="number">100</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(btn1);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//消息记录</span></span><br><span class="line">        Label Message = <span class="keyword">new</span> Label(<span class="string">"Message:"</span>);</span><br><span class="line">        Message.setBounds(<span class="number">10</span>,<span class="number">80</span>,<span class="number">65</span>,<span class="number">25</span>);</span><br><span class="line">        Message.setBackground(Color.cyan);</span><br><span class="line">        textArea = <span class="keyword">new</span> JTextArea();</span><br><span class="line">        textArea.setLineWrap(<span class="keyword">true</span>);</span><br><span class="line">        JScrollPane jp = <span class="keyword">new</span> JScrollPane(textArea);</span><br><span class="line">        textArea.setEditable(<span class="keyword">false</span>);</span><br><span class="line">        textArea.setBounds(<span class="number">85</span>,<span class="number">80</span>,<span class="number">410</span>,<span class="number">200</span>);</span><br><span class="line">        jp.setBounds(<span class="number">85</span>,<span class="number">80</span>,<span class="number">410</span>,<span class="number">200</span>);</span><br><span class="line">        frame.add(Message);</span><br><span class="line">        frame.add(jp);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//消息内容</span></span><br><span class="line">        field4 = <span class="keyword">new</span> JTextField();</span><br><span class="line">        field4.setBounds(<span class="number">85</span>,<span class="number">290</span>,<span class="number">300</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(field4);</span><br><span class="line">        <span class="comment">//消息发送按钮</span></span><br><span class="line">        btn2 = <span class="keyword">new</span> JButton(<span class="string">"发送消息"</span>);</span><br><span class="line">        btn2.setBounds(<span class="number">400</span>,<span class="number">290</span>,<span class="number">100</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(btn2);</span><br><span class="line"></span><br><span class="line">        Label author = <span class="keyword">new</span> Label(<span class="string">"by:codefriday  QQ:853851430"</span>);</span><br><span class="line">        author.setFont(<span class="keyword">new</span> Font(<span class="string">"楷体"</span>,Font.BOLD,<span class="number">16</span>));</span><br><span class="line">        author.setBounds(<span class="number">10</span>,<span class="number">325</span>,<span class="number">400</span>,<span class="number">25</span>);</span><br><span class="line">        frame.add(author);</span><br><span class="line"></span><br><span class="line">        btn1.addActionListener(<span class="keyword">new</span> ActionListener() {<span class="comment">//相应连接/断开连接按钮</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>{</span><br><span class="line">                <span class="keyword">if</span>(IsConn == <span class="keyword">false</span>){</span><br><span class="line">                    String ToIP = field.getText();</span><br><span class="line">                    <span class="keyword">int</span> ToPort = Integer.parseInt(field1.getText());</span><br><span class="line">                    <span class="keyword">int</span> FromPort = Integer.parseInt(field2.getText());</span><br><span class="line">                    String name = field3.getText();</span><br><span class="line">                    <span class="keyword">int</span> YourPort = Integer.parseInt(field5.getText());</span><br><span class="line">                    <span class="keyword">new</span> Thread(<span class="keyword">new</span> TalkSend(FromPort,ToIP,ToPort)).start();</span><br><span class="line">                    <span class="keyword">new</span> Thread(<span class="keyword">new</span> TalkReceive(YourPort,name)).start();</span><br><span class="line"></span><br><span class="line">                    IsConn = <span class="keyword">true</span>;</span><br><span class="line">                    field.setEditable(<span class="keyword">false</span>);</span><br><span class="line">                    field1.setEditable(<span class="keyword">false</span>);</span><br><span class="line">                    field2.setEditable(<span class="keyword">false</span>);</span><br><span class="line">                    field3.setEditable(<span class="keyword">false</span>);</span><br><span class="line">                    field5.setEditable(<span class="keyword">false</span>);</span><br><span class="line">                    btn1.setText(<span class="string">"断开连接"</span>);</span><br><span class="line">                }<span class="keyword">else</span>{</span><br><span class="line">                    textArea.setText(<span class="string">""</span>);</span><br><span class="line">                    IsConn = <span class="keyword">false</span>;</span><br><span class="line">                    field.setEditable(<span class="keyword">true</span>);</span><br><span class="line">                    field1.setEditable(<span class="keyword">true</span>);</span><br><span class="line">                    field2.setEditable(<span class="keyword">true</span>);</span><br><span class="line">                    field3.setEditable(<span class="keyword">true</span>);</span><br><span class="line">                    field5.setEditable(<span class="keyword">true</span>);</span><br><span class="line">                    btn1.setText(<span class="string">"连接"</span>);</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line">        btn2.addActionListener(<span class="keyword">new</span> ActionListener() {<span class="comment">//发送消息</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>{</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="TalkSend线程"><a href="#TalkSend线程" class="headerlink" title="TalkSend线程"></a>TalkSend线程</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.chat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TalkSend</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>{</span><br><span class="line">    DatagramSocket socket = <span class="keyword">null</span>;</span><br><span class="line">    BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> fromPort;</span><br><span class="line">    <span class="keyword">private</span> String toIP;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> toPort;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TalkSend</span><span class="params">(<span class="keyword">int</span> fromPort, String toIP, <span class="keyword">int</span> toPort)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.fromPort = fromPort;</span><br><span class="line">        <span class="keyword">this</span>.toIP = toIP;</span><br><span class="line">        <span class="keyword">this</span>.toPort = toPort;</span><br><span class="line">        <span class="keyword">try</span>{</span><br><span class="line">            socket = <span class="keyword">new</span> DatagramSocket(fromPort);</span><br><span class="line">            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">        }<span class="keyword">catch</span> (Exception e){</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">try</span>{</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>){</span><br><span class="line">                <span class="keyword">if</span>(Window.flag==<span class="keyword">true</span>){</span><br><span class="line">                    String msg = Window.field4.getText();</span><br><span class="line">                    Window.field4.setText(<span class="string">""</span>);</span><br><span class="line">                    Window.flag = <span class="keyword">false</span>;</span><br><span class="line">                    Window.textArea.append(<span class="string">"你说:"</span>+<span class="string">":"</span>+msg+<span class="string">'\n'</span>);</span><br><span class="line">                    DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(msg.getBytes(),<span class="number">0</span>,msg.getBytes().length, InetAddress.getByName(toIP),toPort);</span><br><span class="line">                    socket.send(packet);</span><br><span class="line">                    <span class="keyword">if</span>(msg.equals(<span class="string">"bye"</span>)){</span><br><span class="line">                        Window.IsConn = <span class="keyword">false</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            socket.close();</span><br><span class="line">        }<span class="keyword">catch</span> (Exception e){</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="TalkReceive线程"><a href="#TalkReceive线程" class="headerlink" title="TalkReceive线程"></a>TalkReceive线程</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.chat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.SocketException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TalkReceive</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>{</span><br><span class="line">    <span class="keyword">private</span> String msgFrom;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> toPort;</span><br><span class="line">    DatagramSocket socket = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">byte</span>[] buffer = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TalkReceive</span><span class="params">(<span class="keyword">int</span> toPort,String msgFrom)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.msgFrom = msgFrom;</span><br><span class="line">        <span class="keyword">this</span>.toPort = toPort;</span><br><span class="line">        buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            socket = <span class="keyword">new</span> DatagramSocket(toPort);</span><br><span class="line">        } <span class="keyword">catch</span> (SocketException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">try</span>{</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>){</span><br><span class="line">                DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(buffer,<span class="number">0</span>,buffer.length);</span><br><span class="line">                socket.receive(packet);</span><br><span class="line">                <span class="keyword">byte</span>[] data = packet.getData();</span><br><span class="line">                String msg = <span class="keyword">new</span> String(data,<span class="number">0</span>,data.length);</span><br><span class="line">                Window.textArea.append(msgFrom+<span class="string">":"</span>+msg+<span class="string">'\n'</span>);</span><br><span class="line">                <span class="keyword">if</span>(msg.equals(<span class="string">"bye"</span>)){</span><br><span class="line">                    Window.IsConn = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            socket.close();</span><br><span class="line">        }<span class="keyword">catch</span> (Exception e){</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>然后打包成jar包，方便同时运行两个进行测试！</strong></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><img alt="image-20210217192725134" class="post-img b-lazy" href="/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/image-20210217192725134.png" data-src="/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/image-20210217192725134.png"></p>
+<h2 id="jar包下载地址"><a href="#jar包下载地址" class="headerlink" title="jar包下载地址"></a>jar包下载地址</h2><p>链接：<a href="https://share.weiyun.com/CJRLkmBx" target="_blank" rel="noopener">https://share.weiyun.com/CJRLkmBx</a> 密码：rq3tpg</p>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="MySQL" href="/2021/02/17/MySQL/">
+            MySQL →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"></path></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"></path></svg>
+            <svg class="toc-close hide" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"></path><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"></path></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"></path></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Github仓库地址"><span class="toc-text">Github仓库地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主启动类"><span class="toc-text">主启动类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序窗口类"><span class="toc-text">程序窗口类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TalkSend线程"><span class="toc-text">TalkSend线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TalkReceive线程"><span class="toc-text">TalkReceive线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jar包下载地址"><span class="toc-text">jar包下载地址</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">— CodeFriday —</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/">GUI实时聊天</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/02/17/MySQL/">MySQL</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/02/09/%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98%EF%BC%8C%E5%B0%8F%E7%B1%B3%E9%97%AA%E8%B4%AD%E5%AE%98%E7%BD%91/">前端实战，小米闪购官网</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">Categories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/">第三阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/">第二阶段</a></li></ul>
+        </ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">Tag Cloud</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 19px;">第一阶段感悟</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" style="font-size: 14px;">第三阶段</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" style="font-size: 19px;">第二阶段</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="CodeFriday">CodeFriday</a>
+			© 2021
+		</section>
+		<nav class="site-footer-nav">
+			
+        </nav>
+		<span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+	<p align="center">
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("12/25/2020 00:00:00");//此处建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+	setInterval("createtime()",250);
+	</script>
+	</p>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="CodeFriday">
+			
+                <img src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday icon">
+			
+            <span>CodeFriday</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">GUI实时聊天</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: false,
+        appId: 'u5Keac77Cgj26AHTOFXr2N32-gzGzoHsz',
+        appKey: 'eokpYg7BxMlX9Cs31zsM56A9',
+        placeholder: '欢迎留言！',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+
+
+</body></html>
