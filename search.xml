@@ -443,7 +443,7 @@
 </tr>
 </tbody></table>
 <blockquote>
-<p>分数过滤</p>
+<p>分组过滤</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">GROUP BY ... <span class="comment">-- 指定结果按照哪几个字段分组</span></span><br><span class="line">HAVING ...   <span class="comment">-- 过滤分组的记录必须满足的次要条件</span></span><br></pre></td></tr></table></figure>
 
@@ -3450,7 +3450,8 @@
   <entry>
     <title>GUI实战-贪吃蛇小游戏</title>
     <url>/2021/01/04/GUI%E5%AE%9E%E6%88%98-%E8%B4%AA%E5%90%83%E8%9B%87%E5%B0%8F%E6%B8%B8%E6%88%8F/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前做过安卓开发实现一个登陆注册界面的东西，完后过了一遍GUI基础知识，模仿别人敲了一个贪食蛇游戏。</p>
+    <content><![CDATA[<h2 id="Github仓库地址"><a href="#Github仓库地址" class="headerlink" title="Github仓库地址"></a>Github仓库地址</h2><p><a href="https://github.com/jinyalong/GUI-Snake" target="_blank" rel="noopener">https://github.com/jinyalong/GUI-Snake</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前做过安卓开发实现一个登陆注册界面的东西，完后过了一遍GUI基础知识，模仿别人敲了一个贪食蛇游戏。</p>
 <p>主启动类做的事很简单，<code>new</code>一个<code>JFrame</code>对象，位于<code>swing</code>下，然后设置窗口标题，位置，大小，可见性，不可拉伸，以及添加默认的关闭操作。然后把游戏面板添加到窗口中。区别于<code>AWT</code>中的<code>Frame</code>其实<code>JFrame</code>就是实现了更多方法来供使用。</p>
 <h2 id="主启动类"><a href="#主启动类" class="headerlink" title="主启动类"></a>主启动类</h2><p>源码如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.snake;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 游戏主启动类</span></span><br><span class="line"><span class="comment"> * by：codefriday</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StartGame</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"贪吃蛇小游戏-codefriday"</span>);</span><br><span class="line">        <span class="comment">//加入游戏面板</span></span><br><span class="line">        frame.add(<span class="keyword">new</span> GamePanel());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置窗口参数</span></span><br><span class="line">        frame.setBounds(<span class="number">10</span>,<span class="number">10</span>,<span class="number">915</span>,<span class="number">720</span>);</span><br><span class="line">        frame.setResizable(<span class="keyword">false</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
