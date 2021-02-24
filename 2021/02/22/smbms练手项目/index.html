@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+	
+	
+	
+<link rel="stylesheet" href="/css/allinone.min.css">
+
+
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>smbms练手项目 | CodeFriday</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="codefriday">
+	<meta name="description" content="">
+
+	
+	<meta name="keywords" content="">
+	
+
+	
+	<link rel="shortcut icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	<link rel="apple-touch-icon" href="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="CodeFriday">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="smbms练手项目 | CodeFriday">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="http://yoursite.com/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/">
+
+	
+	<meta property="article:published_time" content="2021-02-22T20:02:00+08:00"> 
+	<meta property="article:author" content="codefriday">
+	<meta property="article:published_first" content="CodeFriday, /2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/">
+	
+<link rel="alternate" href="/atom.xml" title="CodeFriday" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/jinyalong" target="_blank" rel="noopener">
+        <svg viewBox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"></path></svg>
+    </a>
+    
+    
+    <a class="social-link" title="facebook" href="https://blog.csdn.net/HNUCSEE" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 1024"><path d="M1141.351404 39.055942l-28.91333 218.474629c-126.144728-19.927251-251.601043-38.376709-377.75495-27.674187-115.460564 9.802996-227.405635 32.180995-309.124802 122.987208-150.018878 166.696821-68.391499 396.461416 158.252293 437.463272 141.115408 25.52634 283.919721 11.785624 425.448176-8.123269-5.452228 112.440727-5.764308 95.303843-10.674985 205.229569-1.073924 24.057726 4.277337 14.612705-161.648461 31.914809-176.004159 9.004437-351.879815 11.189-520.550085-52.888447C156.545029 905.721534 30.675666 809.16019 5.176863 630.815428c-26.251468-183.595056 48.803865-331.796524 192.516883-446.128091C413.36883 13.098197 790.802521-47.271 1141.351404 39.055942z" fill="#ffffff"></path></svg>
+    </a>
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-02-22T12:58:02.000Z" itemprop="datePublished">
+                    2021-02-22
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a>&nbsp;&nbsp;
+                
+                
+            </section>
+            <h1 class="post-full-title">smbms练手项目</h1>
+        </header>
+        <article class="post-full no-image">
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <h2 id="Github仓库"><a href="#Github仓库" class="headerlink" title="Github仓库"></a>Github仓库</h2><p><strong>项目开源地址：</strong><a href="https://github.com/jinyalong/smbms_Servlet-" target="_blank" rel="noopener">https://github.com/jinyalong/smbms_Servlet-</a></p>
+<h2 id="项目演示地址"><a href="#项目演示地址" class="headerlink" title="项目演示地址"></a>项目演示地址</h2><p><strong>该项目已经部署到我的服务器。</strong></p>
+<p><strong>地址：<a href="http://42.194.181.52:8080/smbms/" target="_blank" rel="noopener">http://42.194.181.52:8080/smbms/</a></strong></p>
+<h2 id="SMBMS"><a href="#SMBMS" class="headerlink" title="SMBMS"></a>SMBMS</h2><p>超市订单管理系统，静态资源JSP，JS，CSS均是找的网路资源，后端MVC三层架构，都采用原生Servlet开发，业务相似的很多，模块之间代码重复。</p>
+<h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><blockquote>
+<p>1、导入数据库</p>
+</blockquote>
+<p>数据库文件：<code>smbms.sql</code>，数据库版本<code>5.1</code>，五个数据表如下。</p>
+<p><img alt="image-20210224184017092" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224184017092.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224184017092.png"></p>
+<p>经过分析发现，查询时最多联合两个表查询，而连表条件是图中两个红色箭头！</p>
+<blockquote>
+<p>2、新建一个空Maven项目</p>
+</blockquote>
+<p>选择web-app模板创建，并且新建好<code>java</code>和<code>resources</code>目录</p>
+<blockquote>
+<p>3、导入相关依赖</p>
+</blockquote>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet.jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- JSTL表达式的包 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- JSTL表达式依赖的标签库 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>taglibs-standard-impl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/fastjson --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.75<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>导入的包有：</strong></p>
+<ul>
+<li>Servlet：专注于处理前端请求</li>
+<li>JSP：专注于展示</li>
+<li>JSTL：JSP中大量用到核心标签库</li>
+<li>TagLib：JSTL的依赖包</li>
+<li>以及连接数据库的包</li>
+<li>junit测试</li>
+<li>阿里巴巴的fastJSON用于传输前后端数据！</li>
+</ul>
+<blockquote>
+<p>4、导入静态资源</p>
+</blockquote>
+<p><img alt="image-20210224184604199" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224184604199.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224184604199.png"></p>
+<p><code>calendar</code>为一个日历插件，css相对简单，js中有很多用到J<code>query</code>的<code>ajax</code>异步请求。</p>
+<blockquote>
+<p>5、新建好文件夹分好项目结构</p>
+</blockquote>
+<p><img alt="image-20210224184821961" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224184821961.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224184821961.png"></p>
+<ul>
+<li><code>dao</code>：和数据库直接交互，返回最原始的结果，比如查询得到的<code>ResultSet</code>处理封装成<code>List</code>返回，增删改直接返回一个整数</li>
+<li><code>filter</code>：字符编码过滤器，针对所有请求，权限过滤器，检查<code>Session</code>中是否存有登陆用户，必须登陆后才能进入系统。</li>
+<li><code>repo</code>：数据库表映射的实体类</li>
+<li><code>service</code>：由<code>servlet</code>调用，调用<code>dao</code>层操作数据库，逻辑判断，以及业务代码主要在这层，同时修改数据库时启用了事务，防止数据库数据异常！</li>
+<li><code>servlet</code>：专注取得前端数据并预处理之后调用<code>service</code>层之后，控制页面的跳转。</li>
+</ul>
+<blockquote>
+<p>6、编写ORM映射数据库的实体类</p>
+</blockquote>
+<p>以user为例：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.ropo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>{</span><br><span class="line">	<span class="keyword">private</span> Integer id; <span class="comment">//id </span></span><br><span class="line">	<span class="keyword">private</span> String userCode; <span class="comment">//用户编码</span></span><br><span class="line">	<span class="keyword">private</span> String userName; <span class="comment">//用户名称</span></span><br><span class="line">	<span class="keyword">private</span> String userPassword; <span class="comment">//用户密码</span></span><br><span class="line">	<span class="keyword">private</span> Integer gender;  <span class="comment">//性别</span></span><br><span class="line">	<span class="keyword">private</span> Date birthday;  <span class="comment">//出生日期</span></span><br><span class="line">	<span class="keyword">private</span> String phone;   <span class="comment">//电话</span></span><br><span class="line">	<span class="keyword">private</span> String address; <span class="comment">//地址</span></span><br><span class="line">	<span class="keyword">private</span> Integer userRole;    <span class="comment">//用户角色</span></span><br><span class="line">	<span class="keyword">private</span> Integer createdBy;   <span class="comment">//创建者</span></span><br><span class="line">	<span class="keyword">private</span> Date creationDate; <span class="comment">//创建时间</span></span><br><span class="line">	<span class="keyword">private</span> Integer modifyBy;     <span class="comment">//更新者</span></span><br><span class="line">	<span class="keyword">private</span> Date modifyDate;   <span class="comment">//更新时间</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Integer age;<span class="comment">//年龄</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String userRoleName;    <span class="comment">//用户角色名称</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUserRoleName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> userRoleName;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserRoleName</span><span class="params">(String userRoleName)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.userRoleName = userRoleName;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="comment">/*long time = System.currentTimeMillis()-birthday.getTime();</span></span><br><span class="line"><span class="comment">		Integer age = Long.valueOf(time/365/24/60/60/1000).IntegerValue();*/</span></span><br><span class="line">		Date date = <span class="keyword">new</span> Date();</span><br><span class="line">		Integer age = date.getYear()-birthday.getYear();</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUserCode</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> userCode;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserCode</span><span class="params">(String userCode)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.userCode = userCode;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUserName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> userName;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String userName)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.userName = userName;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUserPassword</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> userPassword;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserPassword</span><span class="params">(String userPassword)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.userPassword = userPassword;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getGender</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> gender;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGender</span><span class="params">(Integer gender)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.gender = gender;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getBirthday</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> birthday;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthday</span><span class="params">(Date birthday)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPhone</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> phone;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhone</span><span class="params">(String phone)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.phone = phone;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> address;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.address = address;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getUserRole</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> userRole;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserRole</span><span class="params">(Integer userRole)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.userRole = userRole;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getCreatedBy</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> createdBy;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCreatedBy</span><span class="params">(Integer createdBy)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.createdBy = createdBy;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getCreationDate</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> creationDate;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCreationDate</span><span class="params">(Date creationDate)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.creationDate = creationDate;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getModifyBy</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> modifyBy;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setModifyBy</span><span class="params">(Integer modifyBy)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.modifyBy = modifyBy;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getModifyDate</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> modifyDate;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setModifyDate</span><span class="params">(Date modifyDate)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.modifyDate = modifyDate;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>7、编写字符编码过滤器</p>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharacterEncodingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>{</span><br><span class="line">        request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">        response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">        chain.doFilter(request,response);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>web.xml</code>中注册：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.codefriday.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>操作数据库基类</p>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDao</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String Driver;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String Url;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String User;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String Password;</span><br><span class="line">    <span class="comment">//类加载时初始化</span></span><br><span class="line">    <span class="keyword">static</span> {</span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">        InputStream is = BaseDao.class.getClassLoader().getResourceAsStream("db.properties");</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            properties.load(is);</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">        Driver = properties.getProperty(<span class="string">"Driver"</span>);</span><br><span class="line">        Url = properties.getProperty(<span class="string">"Url"</span>);</span><br><span class="line">        User = properties.getProperty(<span class="string">"User"</span>);</span><br><span class="line">        Password = properties.getProperty(<span class="string">"Password"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//获得连接的静态方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>{</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            Class.forName(Driver);</span><br><span class="line">            conn =  DriverManager.getConnection(Url,User,Password);</span><br><span class="line">        } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> conn;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//查询公共方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ResultSet <span class="title">execute</span><span class="params">(Connection conn,PreparedStatement pst,ResultSet rs,String sql,Object params[])</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">        pst = conn.prepareStatement(sql);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; params.length;i++){</span><br><span class="line">            pst.setObject(i+<span class="number">1</span>,params[i]);</span><br><span class="line">        }</span><br><span class="line">        rs = pst.executeQuery();</span><br><span class="line">        <span class="keyword">return</span> rs;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//增删改公共方法，重载</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">execute</span><span class="params">(Connection conn,PreparedStatement pst,String sql,Object params[])</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">        pst = conn.prepareStatement(sql);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; params.length;i++){</span><br><span class="line">            pst.setObject(i+<span class="number">1</span>,params[i]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> UpdateRows = pst.executeUpdate();</span><br><span class="line">        <span class="keyword">return</span> UpdateRows;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//关闭资源</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">CloseResource</span><span class="params">(Connection conn,PreparedStatement pst,ResultSet rs)</span></span>{</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(rs!=<span class="keyword">null</span>){</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                rs.close();</span><br><span class="line">                rs = <span class="keyword">null</span>;</span><br><span class="line">            } <span class="keyword">catch</span> (SQLException throwables) {</span><br><span class="line">                flag = <span class="keyword">false</span>;</span><br><span class="line">                throwables.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(pst!=<span class="keyword">null</span>){</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                pst.close();</span><br><span class="line">                pst = <span class="keyword">null</span>;</span><br><span class="line">            } <span class="keyword">catch</span> (SQLException throwables) {</span><br><span class="line">                flag = <span class="keyword">false</span>;</span><br><span class="line">                throwables.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(conn!=<span class="keyword">null</span>){</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                conn.close();</span><br><span class="line">                conn = <span class="keyword">null</span>;</span><br><span class="line">            } <span class="keyword">catch</span> (SQLException throwables) {</span><br><span class="line">                flag = <span class="keyword">false</span>;</span><br><span class="line">                throwables.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="登录功能实现"><a href="#登录功能实现" class="headerlink" title="登录功能实现"></a>登录功能实现</h2><p><img alt="image-20210224190421064" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224190421064.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224190421064.png"></p>
+<p>loginServlet：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.servlet.user;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.codefriday.ropo.User;</span><br><span class="line"><span class="keyword">import</span> com.codefriday.service.user.UserServiceImpl;</span><br><span class="line"><span class="keyword">import</span> com.codefriday.util.Constants;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>{</span><br><span class="line">        System.out.println(<span class="string">"登录Servlet---"</span>);</span><br><span class="line">        String userCode = req.getParameter(<span class="string">"userCode"</span>);</span><br><span class="line">        String password = req.getParameter(<span class="string">"userPassword"</span>);</span><br><span class="line">        UserServiceImpl userService = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">        User user = userService.login(userCode, password);</span><br><span class="line">        <span class="keyword">if</span>(user!=<span class="keyword">null</span>){<span class="comment">//存在这个用户，可以登录</span></span><br><span class="line">            <span class="comment">//将用户的信息放到Session中</span></span><br><span class="line">            req.getSession().setAttribute(Constants.USER_SESSION,user);</span><br><span class="line">            <span class="comment">//重定向到内部</span></span><br><span class="line">            resp.sendRedirect(req.getContextPath()+<span class="string">"/jsp/frame.jsp"</span>);</span><br><span class="line">            System.out.println(req.getContextPath());</span><br><span class="line">        }<span class="keyword">else</span>{<span class="comment">//查不到这个人</span></span><br><span class="line">            <span class="comment">//转发回去，并提示错误信息</span></span><br><span class="line">            req.setAttribute(<span class="string">"error"</span>,<span class="string">"用户名或密码不正确"</span>);</span><br><span class="line">            req.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(req,resp);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>{</span><br><span class="line">        doGet(req, resp);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>loginService:</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">login</span><span class="params">(String userCode, String password)</span> </span>{</span><br><span class="line">    Connection connection = <span class="keyword">null</span>;</span><br><span class="line">    User user = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//业务层调用具体数据库操作</span></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        connection = BaseDao.getConnection();</span><br><span class="line">        user = userDao.getLoginUser(userCode,connection);</span><br><span class="line">    } <span class="keyword">catch</span> (SQLException throwables) {</span><br><span class="line">        throwables.printStackTrace();</span><br><span class="line">    }<span class="keyword">finally</span> {</span><br><span class="line">        BaseDao.CloseResource(connection,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(user!=<span class="keyword">null</span>&amp;&amp;user.getUserPassword().equals(password))</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>dao：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到登录用户</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getLoginUser</span><span class="params">(String userCode,Connection connection)</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">    PreparedStatement pstm = <span class="keyword">null</span>;</span><br><span class="line">    ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">    User user =  <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(connection!=<span class="keyword">null</span>){</span><br><span class="line">        String sql = <span class="string">"select * from smbms_user where userCode = ?"</span>;</span><br><span class="line">        Object[] params = {userCode};</span><br><span class="line">        rs = BaseDao.execute(connection,pstm,rs,sql,params);</span><br><span class="line">        <span class="keyword">if</span>(rs.next()){</span><br><span class="line">            user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setId(rs.getInt(<span class="string">"id"</span>));</span><br><span class="line">            user.setUserCode(rs.getString(<span class="string">"userCode"</span>));</span><br><span class="line">            user.setUserName(rs.getString(<span class="string">"userName"</span>));</span><br><span class="line">            user.setUserPassword(rs.getString(<span class="string">"userPassword"</span>));</span><br><span class="line">            user.setGender(rs.getInt(<span class="string">"gender"</span>));</span><br><span class="line">            user.setBirthday(rs.getDate(<span class="string">"birthday"</span>));</span><br><span class="line">            user.setPhone(rs.getString(<span class="string">"phone"</span>));</span><br><span class="line">            user.setAddress(rs.getString(<span class="string">"address"</span>));</span><br><span class="line">            user.setUserRole(rs.getInt(<span class="string">"userRole"</span>));</span><br><span class="line">            user.setCreatedBy(rs.getInt(<span class="string">"createdBy"</span>));</span><br><span class="line">            user.setCreationDate(rs.getTimestamp(<span class="string">"creationDate"</span>));</span><br><span class="line">            user.setModifyBy(rs.getInt(<span class="string">"modifyBy"</span>));</span><br><span class="line">            user.setModifyDate(rs.getTimestamp(<span class="string">"modifyDate"</span>));</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        BaseDao.CloseResource(<span class="keyword">null</span>,pstm,rs);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="登录功能优化"><a href="#登录功能优化" class="headerlink" title="登录功能优化"></a>登录功能优化</h2><p><strong>优化一：权限过滤器</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.codefriday.ropo.User;</span><br><span class="line"><span class="keyword">import</span> com.codefriday.util.Constants;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>{</span><br><span class="line">        HttpServletRequest request1 = (HttpServletRequest) request;</span><br><span class="line">        HttpServletResponse response1 = (HttpServletResponse) response;</span><br><span class="line">        <span class="comment">//获得Session</span></span><br><span class="line">        User user = (User) request1.getSession().getAttribute(Constants.USER_SESSION);</span><br><span class="line">        <span class="comment">//说明已经注销或者未登录</span></span><br><span class="line">        <span class="keyword">if</span>(user == <span class="keyword">null</span>){</span><br><span class="line">            response1.sendRedirect(request1.getContextPath()+<span class="string">"/error.jsp"</span>);</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            chain.doFilter(request,response);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>优化二：退出登录</strong></p>
+<p>Servlet：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefriday.servlet.user;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.codefriday.util.Constants;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogOutServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>{</span><br><span class="line">        <span class="comment">//移除session</span></span><br><span class="line">        req.getSession().removeAttribute(Constants.USER_SESSION);</span><br><span class="line">        resp.sendRedirect(req.getContextPath()+<span class="string">"/login.jsp"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>{</span><br><span class="line">        doGet(req, resp);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="修改密码功能"><a href="#修改密码功能" class="headerlink" title="修改密码功能"></a>修改密码功能</h2><p>修改密码功能界面直接导入：</p>
+<p><img alt="image-20210224190934615" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224190934615.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224190934615.png"></p>
+<ul>
+<li>第一个框中当失去焦点时，会发起一个ajax异步请求，查询登陆后放入Session的User对象，并且获得其中的密码来比对一下输出的旧密码是否正确。</li>
+</ul>
+<p><img alt="image-20210224191116450" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224191116450.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224191116450.png"></p>
+<ul>
+<li>修改密码提交事件：修改成功后返回提示信息并移除Session中现有登录用户，需要重新登录，修改失败显示错误信息，在此不再复制代码，具体见GitHub仓库！</li>
+</ul>
+<h2 id="用户管理实现"><a href="#用户管理实现" class="headerlink" title="用户管理实现"></a>用户管理实现</h2><p>1、用户数量</p>
+<p>用户分页单独处理，写了一个类来计算分页！</p>
+<p>2、用户列表</p>
+<p>查询数据库返回一个list</p>
+<p>3、角色列表</p>
+<p>查询用户列表时有条件，根据角色，或者名字模糊查询</p>
+<p><img alt="image-20210224191428611" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224191428611.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/image-20210224191428611.png"></p>
+<p>为了避免多余编写Servlet，这里使用了动态sql查询，也就是后面两个参数可有可无，但是servlet需要处理传过去一个没有意义的值，防止传去null出错！</p>
+<p>dao层：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得指定参数的用户名数量</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUserCount</span><span class="params">(Connection connection, String userName, <span class="keyword">int</span> userRole)</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">    PreparedStatement pstm = <span class="keyword">null</span>;</span><br><span class="line">    ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">if</span>(connection!=<span class="keyword">null</span>){</span><br><span class="line">        StringBuffer sql = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        sql.append(<span class="string">"select count(1) as count from smbms_user u,smbms_role r where u.userRole = r.id "</span>);</span><br><span class="line">        <span class="keyword">if</span>(userName!=<span class="keyword">null</span>){</span><br><span class="line">            list.add(<span class="string">"%"</span>+userName+<span class="string">"%"</span>);</span><br><span class="line">            sql.append(<span class="string">"and userName like ?"</span>);</span><br><span class="line">        }<span class="keyword">if</span>(userRole&gt;<span class="number">0</span>){</span><br><span class="line">            list.add(userRole);</span><br><span class="line">            sql.append(<span class="string">"and userRole = ?"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(sql.toString());</span><br><span class="line">        Object[] params = list.toArray();</span><br><span class="line">        rs = BaseDao.execute(connection, pstm, rs, sql.toString(), params);</span><br><span class="line">        <span class="keyword">if</span>(rs.next()){</span><br><span class="line">            count = rs.getInt(<span class="string">"count"</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">getUserList</span><span class="params">(Connection connection, String userName, <span class="keyword">int</span> userRole, <span class="keyword">int</span> currentPageNo, <span class="keyword">int</span> pageSize)</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">    PreparedStatement pstm = <span class="keyword">null</span>;</span><br><span class="line">    ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">    List&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">    <span class="keyword">if</span>(connection!=<span class="keyword">null</span>){</span><br><span class="line">        StringBuffer sql = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        sql.append(<span class="string">"select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r where u.userRole = r.id"</span>);</span><br><span class="line">        List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">        <span class="keyword">if</span>(!StringUtils.isNullOrEmpty(userName)){</span><br><span class="line">            sql.append(<span class="string">" and u.userName like ?"</span>);</span><br><span class="line">            list.add(<span class="string">"%"</span>+userName+<span class="string">"%"</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(userRole &gt; <span class="number">0</span>){</span><br><span class="line">            sql.append(<span class="string">" and u.userRole = ?"</span>);</span><br><span class="line">            list.add(userRole);</span><br><span class="line">        }</span><br><span class="line">        sql.append(<span class="string">" order by creationDate ASC limit ?,?"</span>);</span><br><span class="line">        currentPageNo = (currentPageNo-<span class="number">1</span>)*pageSize;</span><br><span class="line">        list.add(currentPageNo);</span><br><span class="line">        list.add(pageSize);</span><br><span class="line"></span><br><span class="line">        Object[] params = list.toArray();</span><br><span class="line">        rs = BaseDao.execute(connection, pstm, rs, sql.toString(), params);</span><br><span class="line">        <span class="keyword">while</span>(rs.next()){</span><br><span class="line">            User _user = <span class="keyword">new</span> User();</span><br><span class="line">            _user.setId(rs.getInt(<span class="string">"id"</span>));</span><br><span class="line">            _user.setUserCode(rs.getString(<span class="string">"userCode"</span>));</span><br><span class="line">            _user.setUserName(rs.getString(<span class="string">"userName"</span>));</span><br><span class="line">            _user.setGender(rs.getInt(<span class="string">"gender"</span>));</span><br><span class="line">            _user.setBirthday(rs.getDate(<span class="string">"birthday"</span>));</span><br><span class="line">            _user.setPhone(rs.getString(<span class="string">"phone"</span>));</span><br><span class="line">            _user.setUserRole(rs.getInt(<span class="string">"userRole"</span>));</span><br><span class="line">            _user.setUserRoleName(rs.getString(<span class="string">"userRoleName"</span>));</span><br><span class="line">            userList.add(_user);</span><br><span class="line">        }</span><br><span class="line">        BaseDao.CloseResource(<span class="keyword">null</span>, pstm, rs);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> userList;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后页面的一些增删改就和其他差不多！基本是重复的代码。</p>
+<h2 id="订单界面"><a href="#订单界面" class="headerlink" title="订单界面"></a>订单界面</h2><p>未做分页处理，写简单增删改查业务，具体见源码</p>
+<h2 id="供应商界面"><a href="#供应商界面" class="headerlink" title="供应商界面"></a>供应商界面</h2><p>未做分页处理，写简单增删改查业务，具体见源码</p>
+<h2 id="定制错误界面"><a href="#定制错误界面" class="headerlink" title="定制错误界面"></a>定制错误界面</h2><p>404界面：（需要在web.xml中配置）</p>
+<p>以及权限拦截错误界面：</p>
+<p><img alt="image-20210224192905484" class="post-img b-lazy" href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE%5Cimage-20210224192905484.png" data-src="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE%5Cimage-20210224192905484.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个项目主要是练习MVC三层架构，以及数据库简单CRUD操作，稍微难一点的sql就是连表查询，但是联表只有两个表，也很简单。</p>
+<p>三层架构好处：</p>
+<ul>
+<li>易于维护</li>
+<li>每一层都是用interface再实现，这样实现和定义分离，可清除看到定义的方法，类似C语言中的<code>.h</code>和<code>.cpp</code>文件分离</li>
+<li>dao层专注数据库操作，返回最原始结果</li>
+<li>Service层可以处理数据库事务等问题，并做业务处理和逻辑判断，和dao层、数据库合为MVC中的<code>Model</code>层</li>
+<li><code>servlet</code>中则控制试图跳转，接收前端参数，交给业务层处理，专注于做控制！</li>
+<li><code>jsp</code>实际本质也是<code>servlet</code>，但是前端主要职责是显示，所以几乎只有<code>html</code>，但是还用到了<code>JSTL</code>，<code>EL</code>表达式等等</li>
+</ul>
+<p>最后我把他部署到了我的服务器，遇到一些小问题，主要是在IDEA中编写时，资源路径不是太规范导致404！</p>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">•</span>
+        
+        <a class="next-post" title="JavaWeb学习" href="/2021/02/18/JavaWeb%E5%AD%A6%E4%B9%A0/">
+            JavaWeb学习 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"></path></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"></path></svg>
+            <svg class="toc-close hide" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"></path><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"></path></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"></path></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Github仓库"><span class="toc-text">Github仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目演示地址"><span class="toc-text">项目演示地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMBMS"><span class="toc-text">SMBMS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目搭建"><span class="toc-text">项目搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录功能实现"><span class="toc-text">登录功能实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录功能优化"><span class="toc-text">登录功能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改密码功能"><span class="toc-text">修改密码功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户管理实现"><span class="toc-text">用户管理实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#订单界面"><span class="toc-text">订单界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#供应商界面"><span class="toc-text">供应商界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定制错误界面"><span class="toc-text">定制错误界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">— CodeFriday —</small>
+    <h3 class="read-next-card-header-title">Recent Posts</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2021/02/22/smbms%E7%BB%83%E6%89%8B%E9%A1%B9%E7%9B%AE/">smbms练手项目</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/02/18/JavaWeb%E5%AD%A6%E4%B9%A0/">JavaWeb学习</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2021/02/17/GUI%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9/">GUI实时聊天</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">Categories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/">实战项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/">第一阶段感悟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/">第三阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/">第二阶段</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/">第四阶段</a></li></ul>
+        </ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://codefriday.oss-cn-beijing.aliyuncs.com/background.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">Tag Cloud</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" style="font-size: 24px;">第一阶段</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%84%9F%E6%82%9F/" style="font-size: 20.67px;">第一阶段感悟</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" style="font-size: 14px;">第三阶段</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" style="font-size: 20.67px;">第二阶段</a> <a href="/tags/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" style="font-size: 17.33px;">第四阶段</a> <a href="/tags/%E7%BC%96%E7%A0%81%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 14px;">编码和字符集</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Search ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="CodeFriday">CodeFriday</a>
+			© 2021
+		</section>
+		<nav class="site-footer-nav">
+			
+        </nav>
+		<span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+	<p align="center">
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("12/25/2020 00:00:00");//此处建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+	setInterval("createtime()",250);
+	</script>
+	</p>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="CodeFriday">
+			
+                <img src="https://codefriday.oss-cn-beijing.aliyuncs.com/author.jpg" alt="CodeFriday icon">
+			
+            <span>CodeFriday</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">smbms练手项目</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: false,
+        appId: 'u5Keac77Cgj26AHTOFXr2N32-gzGzoHsz',
+        appKey: 'eokpYg7BxMlX9Cs31zsM56A9',
+        placeholder: '欢迎留言！',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+
+
+</body></html>
